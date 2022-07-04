@@ -2,10 +2,10 @@ import {Link, Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../../hooks/useAuth";
 
 export const ProtectedLayout = () => {
-    const { user } = useAuth();
+    const {user} = useAuth();
 
     if (!user) {
-        return <Navigate to="/" />;
+        return <Navigate to="/"/>;
     }
 
     return (
@@ -13,7 +13,7 @@ export const ProtectedLayout = () => {
             <nav>
                 <Link to="/dashboard/profile">Profile</Link>
             </nav>
-            <Outlet />
+            <Outlet/>
         </div>
     )
 };

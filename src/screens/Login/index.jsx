@@ -11,7 +11,7 @@ export const Login = () => {
         });
     };
 
-    return(
+    return (
         <button onClick={handleSubmit}>Log in</button>
     )
 }

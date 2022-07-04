@@ -8,7 +8,7 @@ export const Profile = () => {
         logout();
     };
 
-    return(
+    return (
         <button onClick={handleSubmit}>Log out</button>
     )
 }
