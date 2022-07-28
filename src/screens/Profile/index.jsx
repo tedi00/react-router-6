@@ -8,23 +8,28 @@ export const Profile = () => {
         filterName: "",
         filterRadio: "FirstRadio"
     }
+    const defaultTable = {
+        tableHead: (<>
+            <tr>
+                <th>Filter Name</th>
+                <th>Filter Radio</th>
+            </tr>
+        </>),
+        tableBody: (<></>)
+    }
 
     const [filterData, setFilterData] = useState({
         filterName: "",
         filterRadio: ""
     });
     const [tableData, setTableData] = useState({
-        tableHead: (<>
-            <tr>
-                <th>Head1</th>
-                <th>Head2</th>
-            </tr>
-        </>),
+        tableHead: (<></>),
         tableBody: (<></>)
     })
 
     useEffect(() => {
             setFilterData(defaultFilters);
+            setTableData(defaultTable);
         }, []
     );
 
@@ -35,15 +40,11 @@ export const Profile = () => {
     const updateTable = () => {
         const newBody = (<>
             <tr>
-                <td>body1</td>
-                <td>body2</td>
-            </tr>
-            <tr>
-                <td>body3</td>
-                <td>body4</td>
+                <td>{filterData.filterName}</td>
+                <td>{filterData.filterRadio}</td>
             </tr>
         </>);
-        setTableData({...tableData, tableBody: newBody});
+        setTableData({ tableHead: defaultTable.tableHead, tableBody: newBody});
     }
 
     const getWithFilterData = (e) => {
@@ -54,7 +55,7 @@ export const Profile = () => {
     const resetFilters = (e) => {
         e.preventDefault();
         setFilterData(defaultFilters);
-        setTableData({...tableData, tableBody: (<></>)})
+        setTableData({...defaultTable});
     }
 
     return (

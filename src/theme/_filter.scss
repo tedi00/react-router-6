@@ -1,10 +1,11 @@
 .filter-class {
+  border: 1px solid royalblue;
+  border-radius: .25rem .25rem 0 0;
+  margin: 1rem 0;
+  padding: 1rem;
   .form-title {
     margin-bottom: 2rem;
   }
-  border: 1px solid orangered;
-  margin: 1rem 0;
-  padding: 1rem;
   label > input{
     margin-left: 0.5rem;
   }

@@ -94,7 +94,8 @@
 }
 
 .filter-class {
-  border: 1px solid orangered;
+  border: 1px solid royalblue;
+  border-radius: 0.25rem 0.25rem 0 0;
   margin: 1rem 0;
   padding: 1rem;
 }
