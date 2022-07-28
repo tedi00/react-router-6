@@ -46,7 +46,7 @@ export const Profile = () => {
         setTableData({...tableData, tableBody: newBody});
     }
 
-    const fakeCall = (e) => {
+    const getWithFilterData = (e) => {
         e.preventDefault();
         console.log(filterData);
         updateTable();
@@ -62,7 +62,7 @@ export const Profile = () => {
             <Filter
                 title="Test Filter"
                 className="filter-class"
-                callData={fakeCall}
+                submitFilter={getWithFilterData}
                 reset={resetFilters}
             >
 
