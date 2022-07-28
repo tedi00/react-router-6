@@ -1,5 +1,6 @@
-import {Link, Navigate, Outlet} from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../../hooks/useAuth";
+import {Sidebar} from "../Sidebar";
 
 export const HomeLayout = () => {
 
@@ -10,12 +11,11 @@ export const HomeLayout = () => {
     }
 
     return (
-        <div>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
-            </nav>
-            <Outlet/>
+        <div className={'wrapper'}>
+            <Sidebar/>
+            <div className="content">
+                <Outlet/>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,6 @@
-import {Link, Navigate, Outlet} from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../../hooks/useAuth";
+import {Sidebar} from "../Sidebar";
 
 export const ProtectedLayout = () => {
     const {user} = useAuth();
@@ -9,11 +10,11 @@ export const ProtectedLayout = () => {
     }
 
     return (
-        <div>
-            <nav>
-                <Link to="/dashboard/profile">Profile</Link>
-            </nav>
-            <Outlet/>
+        <div className={'wrapper'}>
+            <Sidebar/>
+            <div className="content">
+                <Outlet/>
+            </div>
         </div>
     )
 };

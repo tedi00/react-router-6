@@ -1,0 +1,18 @@
+.filter-class {
+  .form-title {
+    margin-bottom: 2rem;
+  }
+  border: 1px solid orangered;
+  margin: 1rem 0;
+  padding: 1rem;
+  label > input{
+    margin-left: 0.5rem;
+  }
+  .radio-label {
+    margin-right: 1rem;
+    margin-left: .5rem;
+  }
+  button.submit {
+    margin-top: 2rem;
+  }
+}

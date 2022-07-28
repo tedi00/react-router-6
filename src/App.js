@@ -6,6 +6,7 @@ import {Login} from "./screens/Login";
 import {ProtectedLayout} from "./components/ProtectedLayout";
 import {HomeLayout} from "./components/HomeLayout";
 import {Profile} from "./screens/Profile";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
     return (

@@ -1,11 +1,22 @@
 @use 'colors';
-@import "navbar";
+@import "sidebar";
+@import "filter";
 
 html, body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 200vh;
 }
 
 body {
-  background-image: linear-gradient(to bottom right, colors.$purple-200, colors.$orange-200);
+  background-color: colors.$blue-50;
+}
+
+.wrapper {
+  position: relative;
+}
+.content {
+  padding: 1rem 1rem 1rem calc(60px + 1rem);
+  h1 {
+    margin: 0;
+  }
 }

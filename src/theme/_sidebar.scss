@@ -1,0 +1,103 @@
+@use 'colors';
+
+* {
+  box-sizing: border-box;
+}
+
+.sidebar {
+  --border-right: 1px;
+  --width: 300px;
+  --closed-width: 60px;
+  --transform: calc(var(--width) * -1 + var(--closed-width) + var(--border-right));
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: min(var(--width), 90%);
+  min-width: 150px;
+  height: 100vh;
+  border-right: var(--border-right) solid black;
+  transform: translateX(var(--transform)); //default is closed
+  transition: transform 220ms ease-in-out;
+  background-color: colors.$blue-300-opacity;
+
+  //handles behaviour of items when sidebar is open
+  &.open {
+    transform: translateX(0);
+
+    .toggle span {
+      transform: rotate(45deg);
+      &::before, &::after {
+        transform: rotate(90deg);
+      }
+    }
+
+    nav a , nav button{
+      pointer-events: auto;
+    }
+  }
+  // --!!--
+
+  .toggle {
+    width: 100%;
+    height: var(--closed-width);
+    border: none;
+    padding: 0;
+    position: relative;
+    background-color: colors.$blue-500;
+    &:hover {
+      background-color: colors.$blue-400;
+    }
+    span {
+      --short: calc(var(--closed-width) * 1 / 10);
+      --long: calc(var(--closed-width) * 8 / 10);
+      position: absolute;
+      right: var(--short);
+      top: calc(50% - 2.5px);
+      display: block;
+      width: var(--long);
+      height: 5px;
+      background-color: colors.$blue-100;
+      border-radius: var(--short);
+      transition: transform 220ms ease-in-out;
+      --distance1: calc(var(--closed-width) / 5);
+      --distance2: calc(var(--distance1) * -1);
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: var(--long);
+        height: 5px;
+        transition: transform 220ms ease-in-out;
+        background-color: colors.$blue-100;
+        border-radius: var(--short);
+      }
+      &::before {
+        transform: translateY(var(--distance1));
+      }
+      &::after {
+        transform: translateY(var(--distance2));
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    a, button {
+      display: flex;
+      height: var(--closed-width);
+      align-items: center;
+      padding: 1rem;
+      pointer-events: none;
+      text-decoration: none;
+      color: colors.$blue-900;
+      font-size: large;
+      background-color: transparent;
+      border: none;
+      font-family: Arial, sans-serif;
+    }
+  }
+}
