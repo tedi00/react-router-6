@@ -110,11 +110,16 @@ export const Profile = () => {
                 </div>
 
             </Filter>
-
-            <table className="table table-bordered">
-                <thead>{tableData.tableHead}</thead>
-                <tbody>{tableData.tableBody}</tbody>
-            </table>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-12">
+                        <table className="table table-bordered">
+                            <thead>{tableData.tableHead}</thead>
+                            <tbody>{tableData.tableBody}</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
