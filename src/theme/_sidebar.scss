@@ -16,7 +16,7 @@
   width: min(var(--width), 90%);
   min-width: 150px;
   height: 100vh;
-  border-right: var(--border-right) solid black;
+  border-right: var(--border-right) solid colors.$blue-700;
   transform: translateX(var(--transform)); //default is closed
   transition: transform 220ms ease-in-out;
   background-color: colors.$blue-300-opacity;
@@ -45,8 +45,15 @@
     padding: 0;
     position: relative;
     background-color: colors.$blue-500;
+    border-bottom: 1px solid colors.$blue-700;
     &:hover {
       background-color: colors.$blue-400;
+    }
+    p {
+      font-size: 2rem;
+      text-align: left;
+      margin: 0 0 0 1rem;
+      color: colors.$white;
     }
     span {
       --short: calc(var(--closed-width) * 1 / 10);

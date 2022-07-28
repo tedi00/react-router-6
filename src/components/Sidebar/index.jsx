@@ -39,6 +39,7 @@ export const Sidebar = () => {
         <aside className={'sidebar ' + sidebarStatus}>
 
             <button onClick={toggleSidebarOpen} className="toggle">
+                <p>Navigate</p>
                 <span aria-label={'toggle'}></span>
             </button>
             <nav>

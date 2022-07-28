@@ -64,8 +64,7 @@ export const Profile = () => {
                 title="Test Filter"
                 className="filter-class"
                 submitFilter={getWithFilterData}
-                reset={resetFilters}
-            >
+                reset={resetFilters}>
 
                 <div className="row">
                     <div className="col-12 col-md-6 my-2 my-md-0">
