@@ -3,23 +3,58 @@ import {Filter} from "../../components/Filter";
 
 
 export const Profile = () => {
-    const [data, setData] = useState({
+
+    const defaultFilters = {
+        filterName: "",
+        filterRadio: "FirstRadio"
+    }
+
+    const [filterData, setFilterData] = useState({
         filterName: "",
         filterRadio: ""
     });
+    const [tableData, setTableData] = useState({
+        tableHead: (<>
+            <tr>
+                <th>Head1</th>
+                <th>Head2</th>
+            </tr>
+        </>),
+        tableBody: (<></>)
+    })
 
     useEffect(() => {
-            setData({...data, filterRadio: "FirstRadio"});
+            setFilterData(defaultFilters);
         }, []
     );
 
-    const changeHandler = e => {
-        setData({...data, [e.target.name]: e.target.value});
+    const changeHandler = (e) => {
+        setFilterData({...filterData, [e.target.name]: e.target.value});
     };
+
+    const updateTable = () => {
+        const newBody = (<>
+            <tr>
+                <td>body1</td>
+                <td>body2</td>
+            </tr>
+            <tr>
+                <td>body3</td>
+                <td>body4</td>
+            </tr>
+        </>);
+        setTableData({...tableData, tableBody: newBody});
+    }
 
     const fakeCall = (e) => {
         e.preventDefault();
-        console.log(data);
+        console.log(filterData);
+        updateTable();
+    }
+    const resetFilters = (e) => {
+        e.preventDefault();
+        setFilterData(defaultFilters);
+        setTableData({...tableData, tableBody: (<></>)})
     }
 
     return (
@@ -27,7 +62,9 @@ export const Profile = () => {
             <Filter
                 title="Test Filter"
                 className="filter-class"
-                callData={fakeCall}>
+                callData={fakeCall}
+                reset={resetFilters}
+            >
 
                 <div className="row">
                     <div className="col-12 col-md-6 my-2 my-md-0">
@@ -38,7 +75,7 @@ export const Profile = () => {
                                 className="form-input"
                                 type="text"
                                 name="filterName"
-                                value={data.filterName}
+                                value={filterData.filterName}
                                 onChange={(event) => {
                                     changeHandler(event);
                                 }}
@@ -54,7 +91,7 @@ export const Profile = () => {
                                    id="radio1"
                                    name="filterRadio"
                                    value="FirstRadio"
-                                   checked={data.filterRadio === "FirstRadio"}/>
+                                   checked={filterData.filterRadio === "FirstRadio"}/>
                             <label className="radio-label" htmlFor="radio1">Radio 1</label>
                         </div>
                         <div className="d-inline-block">
@@ -65,7 +102,7 @@ export const Profile = () => {
                                    id="radio2"
                                    name="filterRadio"
                                    value="SecondRadio"
-                                   checked={data.filterRadio === "SecondRadio"}
+                                   checked={filterData.filterRadio === "SecondRadio"}
                             />
                             <label className="radio-label" htmlFor="radio2">Radio 2</label>
                         </div>
@@ -73,6 +110,11 @@ export const Profile = () => {
                 </div>
 
             </Filter>
+
+            <table className="table table-bordered">
+                <thead>{tableData.tableHead}</thead>
+                <tbody>{tableData.tableBody}</tbody>
+            </table>
         </>
     )
 }
