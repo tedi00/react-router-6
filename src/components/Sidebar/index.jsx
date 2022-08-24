@@ -1,9 +1,15 @@
 import {useAuth} from "../../hooks/useAuth";
-// import {useCurrentPath} from "../../hooks/useCurrentPath"
+// import {useRoutes} from "../../hooks/useRoutes"
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useRoutes} from "../../hooks/useRoutes";
 
 export const Sidebar = () => {
+    // const loc = useRoutes();
+    // useEffect(() => {
+    //     console.log("loc", loc.location);
+    //     console.log('get', loc.getRoute('profile'));
+    // }, [loc]);
 
     const statuses = {
         open: 'open',
@@ -12,7 +18,7 @@ export const Sidebar = () => {
     const {user, logout} = useAuth();
     const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
 
-    // const currentPath = useCurrentPath();
+    // const currentPath = useRoutes();
     // console.log(currentPath);
 
 
@@ -38,8 +44,9 @@ export const Sidebar = () => {
     function toggleSidebarOpen() {
         setSidebarStatus(sidebarStatus === statuses.closed ? statuses.open : statuses.closed);
     }
+
     function closeSidebar() {
-        if(sidebarStatus === statuses.open) {
+        if (sidebarStatus === statuses.open) {
             setSidebarStatus(statuses.closed);
         }
     }
