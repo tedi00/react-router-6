@@ -1,11 +1,20 @@
 import {useAuth} from "../../hooks/useAuth";
+// import {useCurrentPath} from "../../hooks/useCurrentPath"
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
 export const Sidebar = () => {
 
+    const statuses = {
+        open: 'open',
+        closed: ''
+    }
     const {user, logout} = useAuth();
-    const [sidebarStatus, setSidebarStatus] = useState('');
+    const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
+
+    // const currentPath = useCurrentPath();
+    // console.log(currentPath);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,11 +36,11 @@ export const Sidebar = () => {
     let routes = user ? protectedRoutes : homeRoutes;
 
     function toggleSidebarOpen() {
-        setSidebarStatus(sidebarStatus === '' ? 'open' : '');
+        setSidebarStatus(sidebarStatus === statuses.closed ? statuses.open : statuses.closed);
     }
     function closeSidebar() {
-        if(sidebarStatus === 'open') {
-            setSidebarStatus('');
+        if(sidebarStatus === statuses.open) {
+            setSidebarStatus(statuses.closed);
         }
     }
 

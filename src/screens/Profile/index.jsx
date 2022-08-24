@@ -60,6 +60,13 @@ export const Profile = () => {
 
     return (
         <>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-12 mt-3 mb-3">
+                        <h1>Filter on Profile</h1>
+                    </div>
+                </div>
+            </div>
             <Filter
                 title="Test Filter"
                 className="filter-class"

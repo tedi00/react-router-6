@@ -20,7 +20,7 @@ export const Filter = ({submitFilter, reset, ...props}) => {
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-12 filter-buttons">
-                                    <button className="btn btn-primary submit" onClick={submitFilter}>Apply Filters
+                                    <button className="btn btn-blue submit" onClick={submitFilter}>Apply Filters
                                     </button>
                                     <button className="btn btn-outline-danger ms-2" onClick={reset}>Reset</button>
                                 </div>

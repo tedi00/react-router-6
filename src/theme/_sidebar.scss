@@ -13,29 +13,36 @@
   z-index: 999;
   left: 0;
   top: 0;
-  width: min(var(--width), 90%);
+  width: var(--width);
   min-width: 150px;
   height: 100vh;
-  border-right: var(--border-right) solid colors.$blue-700;
+  border-right: var(--border-right) solid colors.$blue-900;
   transform: translateX(var(--transform)); //default is closed
   transition: transform 220ms ease-in-out;
-  background-color: colors.$blue-300-opacity;
+  background-color: colors.$white;
 
   //handles behaviour of items when sidebar is open
   &.open {
     transform: translateX(0);
+    width: min(var(--width), 90%);
 
     .toggle span {
       transform: rotate(45deg);
+
       &::before, &::after {
         transform: rotate(90deg);
       }
+
+      @media screen and (max-width: 240px) {
+        display: none;
+      }
     }
 
-    nav a , nav button{
+    nav a, nav button {
       pointer-events: auto;
     }
   }
+
   // --!!--
 
   .toggle {
@@ -44,17 +51,19 @@
     border: none;
     padding: 0;
     position: relative;
-    background-color: colors.$blue-500;
-    border-bottom: 1px solid colors.$blue-700;
+    background-color: colors.$blue-900;
+    //border-bottom: 1px solid colors.$blue-700;
     &:hover {
-      background-color: colors.$blue-400;
+      background-color: colors.$blue-700;
     }
+
     p {
       font-size: 2rem;
       text-align: left;
       margin: 0 0 0 1rem;
       color: colors.$white;
     }
+
     span {
       --short: calc(var(--closed-width) * 1 / 10);
       --long: calc(var(--closed-width) * 8 / 10);
@@ -64,11 +73,12 @@
       display: block;
       width: var(--long);
       height: 5px;
-      background-color: colors.$blue-100;
+      background-color: colors.$white;
       border-radius: var(--short);
       transition: transform 220ms ease-in-out;
       --distance1: calc(var(--closed-width) / 5);
       --distance2: calc(var(--distance1) * -1);
+
       &::before, &::after {
         content: "";
         position: absolute;
@@ -78,12 +88,14 @@
         width: var(--long);
         height: 5px;
         transition: transform 220ms ease-in-out;
-        background-color: colors.$blue-100;
+        background-color: colors.$white;
         border-radius: var(--short);
       }
+
       &::before {
         transform: translateY(var(--distance1));
       }
+
       &::after {
         transform: translateY(var(--distance2));
       }
@@ -93,6 +105,7 @@
   nav {
     display: flex;
     flex-direction: column;
+
     a, button {
       display: flex;
       height: var(--closed-width);
@@ -105,6 +118,10 @@
       background-color: transparent;
       border: none;
       font-family: Arial, sans-serif;
+
+      &:hover {
+        background-color: colors.$purple-50;
+      }
     }
   }
 }
