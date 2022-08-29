@@ -54,7 +54,7 @@ export default function Home() {
             <div className="row">
                 <div className="col-4">
                     <Card>
-                        <h6>Profile</h6>
+                        <h5>Profile</h5>
                         <p>
                             Donec pretium, dolor at
                             accumsan malesuada, arcu nulla cursus lectus, et accumsan ante risus vel dui. Maecenas risus

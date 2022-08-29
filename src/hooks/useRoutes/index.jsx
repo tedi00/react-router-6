@@ -25,7 +25,6 @@ export const useRoutes = () => {
 
     return useMemo(
         () => ({
-            location,
             routes,
             getRoute
         }),
