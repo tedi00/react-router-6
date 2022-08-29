@@ -1,20 +1,29 @@
-import { useLocation } from "react-router-dom"
+import {useLocation} from "react-router-dom"
 import {useMemo} from "react";
 
 export const useRoutes = () => {
     const location = useLocation();
     const pathname = location.pathname;
 
-    const routes = [
-        {path: "/", name: "home"},
-        {path: "/login", name: "login"},
-        {path: "/dashboard/profile", name: "profile"}
-    ]
-    const getRoute = (name) => {
-        return routes.find(route => route.name === name.toLowerCase()) || undefined;
+    const routes = {
+        protectedLayout: [
+            {path: "/dashboard/profile", name: "Profile"}
+        ],
+        homeLayout: [
+            {path: "/", name: "Home"},
+            {path: "/login", name: "Login"}
+        ]
     }
 
-    const value = useMemo(
+    const getRoute = (name) => {
+        if (!name) {
+            return pathname;
+        }
+        return routes.protectedLayout.find(route => route.name.toLowerCase() === name.toLowerCase()) ||
+            routes.homeLayout.find(route => route.name.toLowerCase() === name.toLowerCase());
+    }
+
+    return useMemo(
         () => ({
             location,
             routes,
@@ -22,6 +31,4 @@ export const useRoutes = () => {
         }),
         [location]
     );
-
-    return value;
 }

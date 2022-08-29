@@ -9,7 +9,7 @@ export const HomeLayout = () => {
     if (user) {
         return <Navigate to="/dashboard/profile" replace/>;
     }
-
+    else
     return (
         <div className={'wrapper'}>
             <Sidebar/>

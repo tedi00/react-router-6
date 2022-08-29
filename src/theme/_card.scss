@@ -2,4 +2,7 @@
 .card {
   box-shadow: 2px 2px 5px colors.$black-4-opacity;
   padding: 1rem;
+  a {
+    color: colors.$blue-800;
+  }
 }

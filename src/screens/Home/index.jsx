@@ -1,7 +1,13 @@
 import {Header} from "../../components/Header";
 import {Card} from "../../components/Card";
+import {Link} from "react-router-dom";
+import {useRoutes} from "../../hooks/useRoutes";
 
 export default function Home() {
+
+    const {getRoute} = useRoutes();
+    const login = getRoute('login');
+
     return (
         <div className="container">
             <div className="row">
@@ -55,6 +61,7 @@ export default function Home() {
                             nulla,
                             laoreet ac facilisis non, viverra eget turpis.
                         </p>
+                        <Link to={login.path} key={login.name}>{login.name}</Link>
                     </Card>
                 </div>
             </div>

@@ -142,6 +142,9 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   padding: 1rem;
 }
+.card a {
+  color: #3569d8;
+}
 
 html, body {
   margin: 0;
