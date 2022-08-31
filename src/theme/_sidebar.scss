@@ -106,7 +106,34 @@
     display: flex;
     flex-direction: column;
 
-    a, button {
+    .nav-anchor{
+      a {
+        display: flex;
+        flex-wrap: wrap;
+        text-decoration: none;
+      }
+      .nav-text {
+        &:not(.w-100) {
+          width: calc(100% - var(--closed-width));
+        }
+      }
+      .nav-text:not(.w-100) + .nav-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--closed-width);
+        font-size: 1.5rem;
+        color: colors.$blue-700;
+      }
+      &:hover {
+        background-color: colors.$purple-50;
+        .nav-icon {
+          color: colors.$orange-800 !important;
+        }
+      }
+    }
+
+    .nav-text, button {
       display: flex;
       height: var(--closed-width);
       align-items: center;
@@ -118,7 +145,6 @@
       background-color: transparent;
       border: none;
       font-family: Arial, sans-serif;
-
       &:hover {
         background-color: colors.$purple-50;
       }

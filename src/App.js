@@ -1,12 +1,13 @@
 import {Routes, Route} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import './theme/styles.css';
 import './App.css';
+import {HomeLayout} from "./components/HomeLayout";
+import {ProtectedLayout} from "./components/ProtectedLayout";
 import Home from './screens/Home'
 import {Login} from "./screens/Login";
-import {ProtectedLayout} from "./components/ProtectedLayout";
-import {HomeLayout} from "./components/HomeLayout";
 import {Profile} from "./screens/Profile";
-import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
     return (

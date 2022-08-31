@@ -8,7 +8,7 @@ export const ProtectedLayout = () => {
     if (!user) {
         return <Navigate to="/"/>;
     }
-
+    else
     return (
         <div className={'wrapper'}>
             <Sidebar/>

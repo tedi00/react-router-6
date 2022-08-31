@@ -1,8 +1,7 @@
 import {useAuth} from "../../hooks/useAuth";
-// import {useRoutes} from "../../hooks/useRoutes"
-import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useRoutes} from "../../hooks/useRoutes";
+import {NavLink} from "../NavLink";
 
 export const Sidebar = () => {
 
@@ -11,24 +10,46 @@ export const Sidebar = () => {
         closed: ''
     }
 
-    const {routes} = useRoutes();
+    const {routes, getRouteByPath} = useRoutes();
     const {user, logout} = useAuth();
     const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
 
+    useEffect(() => {
+        console.log(getRouteByPath());
+    }, [getRouteByPath()]);
+
     //Route HTML
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        logout();
-    };
     const homeRoutes = routes.homeLayout.map((route) =>
-        <Link to={route.path} key={route.name} onClick={closeSidebar}>{route.name}</Link>
+        <NavLink
+            to={route.path}
+            text={route.name}
+            icon={route.icon}
+            onClick={closeSidebar}
+            key={route.name}
+        />
     );
     const protectedRoutes = (
         <>
             {routes.protectedLayout.map((route) =>
-                <Link to={route.path} key={route.name} onClick={closeSidebar}>{route.name}</Link>
+                <NavLink
+                    to={route.path}
+                    text={route.name}
+                    icon={route.icon}
+                    onClick={closeSidebar}
+                    key={route.name}
+                />
             )}
-            <button onClick={handleSubmit}>Log out</button>
+            <NavLink
+                to={"/"}
+                text={"Logout"}
+                icon={<i className="bi bi-box-arrow-in-right"></i>}
+                onClick={() => {
+                    closeSidebar();
+                    logout();
+                }}
+                key={"logout"}
+            />
+            {/*<button onClick={handleSubmit}>Log out</button>*/}
         </>
     );
     // --!--

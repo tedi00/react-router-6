@@ -1,5 +1,4 @@
 import {useLocation} from "react-router-dom"
-import {useMemo} from "react";
 
 export const useRoutes = () => {
     const location = useLocation();
@@ -7,27 +6,25 @@ export const useRoutes = () => {
 
     const routes = {
         protectedLayout: [
-            {path: "/dashboard/profile", name: "Profile"}
+            {path: "/dashboard/profile", name: "Profile", icon: (<i className="bi bi-person"></i>)}
         ],
         homeLayout: [
-            {path: "/", name: "Home"},
-            {path: "/login", name: "Login"}
+            {path: "/", name: "Home", icon: (<i className="bi bi-house"></i>)},
+            {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"></i>)}
         ]
     }
 
     const getRoute = (name) => {
-        if (!name) {
-            return pathname;
-        }
         return routes.protectedLayout.find(route => route.name.toLowerCase() === name.toLowerCase()) ||
             routes.homeLayout.find(route => route.name.toLowerCase() === name.toLowerCase());
     }
+    const getRouteByPath = (path) => {
+        if (!path) {
+            return pathname;
+        }
+        return routes.protectedLayout.find(route => route.path.toLowerCase() === path.toLowerCase()) ||
+            routes.homeLayout.find(route => route.path.toLowerCase() === path.toLowerCase());
+    }
 
-    return useMemo(
-        () => ({
-            routes,
-            getRoute
-        }),
-        [location]
-    );
+    return {routes, getRoute, getRouteByPath}
 }
