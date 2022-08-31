@@ -9,7 +9,7 @@ export const Filter = ({submitFilter, reset, ...props}) => {
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-12">
-                                    <h1 className="form-title">{props.title ? props.title : "Filter"}</h1>
+                                    <h3 className="form-title">{props.title ? props.title : "Filter"}</h3>
                                 </div>
                             </div>
                         </div>

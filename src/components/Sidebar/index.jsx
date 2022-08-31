@@ -6,7 +6,7 @@ import {NavLink} from "../NavLink";
 export const Sidebar = () => {
 
     const statuses = {
-        open: 'open',
+        open: ' open',
         closed: ''
     }
 
@@ -49,7 +49,6 @@ export const Sidebar = () => {
                 }}
                 key={"logout"}
             />
-            {/*<button onClick={handleSubmit}>Log out</button>*/}
         </>
     );
     // --!--
@@ -66,7 +65,7 @@ export const Sidebar = () => {
     }
 
     return (
-        <aside className={'sidebar ' + sidebarStatus}>
+        <aside className={'sidebar' + sidebarStatus}>
 
             <button onClick={toggleSidebarOpen} className="toggle">
                 <p>Navigate</p>
