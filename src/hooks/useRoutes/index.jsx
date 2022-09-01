@@ -10,6 +10,8 @@ export const useRoutes = () => {
         ],
         homeLayout: [
             {path: "/", name: "Home", icon: (<i className="bi bi-house"></i>)},
+            {path: "/maps", name: "Maps", icon: (<i className="bi bi-map"></i>)},
+            {path: "/npcs", name: "NPCs", icon: (<i className="bi bi-robot"></i>)},
             {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"></i>)}
         ]
     }

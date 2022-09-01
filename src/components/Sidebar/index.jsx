@@ -1,5 +1,5 @@
 import {useAuth} from "../../hooks/useAuth";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useRoutes} from "../../hooks/useRoutes";
 import {NavLink} from "../NavLink";
 
@@ -13,10 +13,7 @@ export const Sidebar = () => {
     const {routes, getRouteByPath} = useRoutes();
     const {user, logout} = useAuth();
     const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
-
-    useEffect(() => {
-        console.log(getRouteByPath());
-    }, [getRouteByPath()]);
+    const currentRoute = getRouteByPath();
 
     //Route HTML
     const homeRoutes = routes.homeLayout.map((route) =>
@@ -24,6 +21,7 @@ export const Sidebar = () => {
             to={route.path}
             text={route.name}
             icon={route.icon}
+            active={route.path === currentRoute}
             onClick={closeSidebar}
             key={route.name}
         />
@@ -35,6 +33,7 @@ export const Sidebar = () => {
                     to={route.path}
                     text={route.name}
                     icon={route.icon}
+                    active={route.path.includes(currentRoute)}
                     onClick={closeSidebar}
                     key={route.name}
                 />

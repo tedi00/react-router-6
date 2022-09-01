@@ -21,3 +21,8 @@ body {
     margin: 0;
   }
 }
+
+.clipped-image {
+  position: absolute;
+  clip: rect(125px, 250px, 200px, 50px)
+}

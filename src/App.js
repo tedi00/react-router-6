@@ -8,12 +8,16 @@ import {ProtectedLayout} from "./components/ProtectedLayout";
 import Home from './screens/Home'
 import {Login} from "./screens/Login";
 import {Profile} from "./screens/Profile";
+import {Maps} from "./screens/Maps";
+import {Npcs} from "./screens/Npcs";
 
 function App() {
     return (
         <Routes>
             <Route element={<HomeLayout/>}>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/maps" element={<Maps/>}/>
+                <Route path="/npcs" element={<Npcs/>}/>
                 <Route path="/login" element={<Login/>}/>
             </Route>
 

@@ -7,9 +7,11 @@ export default function Home() {
 
     const {getRoute} = useRoutes();
     const login = getRoute('login');
+    const maps = getRoute('maps');
+    const npcs = getRoute('npcs');
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <div className="col-12">
                     <Header textContent={"Home"}/>
@@ -18,54 +20,47 @@ export default function Home() {
             <div className="row">
                 <div className="col-12">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac tellus a quam pretium
-                        imperdiet
-                        rhoncus dignissim orci. Pellentesque posuere molestie odio, id pretium ligula tempor a.
-                        Vestibulum at
-                        ullamcorper enim. Cras vel nibh mauris. Duis tempor sodales enim, at gravida nibh. Praesent
-                        tincidunt
-                        diam facilisis tincidunt sodales. Morbi vitae neque nec erat tincidunt feugiat ut sit amet nisl.
-                        Integer
-                        ullamcorper pellentesque erat, at sagittis lorem lacinia quis. In hac habitasse platea dictumst.
-                        Nunc
-                        lacinia nisi sit amet lacus feugiat, eget euismod arcu suscipit. Interdum et malesuada fames ac
-                        ante
-                        ipsum primis in faucibus. Morbi sit amet aliquam sem, in tincidunt lorem. Donec tempus bibendum
-                        neque id
-                        posuere. Phasellus et nisl cursus, pharetra nisi vitae, tincidunt sem. Aliquam semper nulla
-                        erat, id
-                        lacinia magna dignissim ac. In ut tortor id velit viverra aliquet.
+                        This page was made with Dungeons & Dragons sessions in mind. It is intended to help you progress
+                        through your journey, giving you information and helping you maintain a grasp on what you
+                        already know. It is only available to you through your Dungeon Master, who will update you with
+                        new information and keep track of your character sheets through this web app.
                     </p>
                     <p>
-                        Duis sit amet elit sit amet massa viverra rutrum at eu purus. Sed placerat quis massa quis
-                        vulputate.
-                        Quisque scelerisque at magna ut maximus. Fusce ut rutrum nunc. Cras nec porta erat. Duis in
-                        ullamcorper
-                        tellus. Maecenas tempor ligula nec bibendum bibendum. Aenean molestie commodo consequat. Class
-                        aptent
-                        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nec lorem ac
-                        tellus
-                        pretium ullamcorper. Mauris ornare mollis lectus nec maximus. Aenean sed libero sed tellus
-                        vestibulum
-                        molestie. Quisque ac bibendum est. Curabitur fringilla urna a tempor egestas.
+                        Feel free to ask your Dungeon Master if you have any questions regarding usage or navigation.
+                        Explore, search through game data and save your character sheets.
                     </p>
                 </div>
             </div>
             <div className="row">
-                <div className="col-4">
+                <div className="col-12 col-sm-6 col-md-4 mb-3">
                     <Card>
                         <h5>Login</h5>
                         <p>
-                            Donec pretium, dolor at
-                            accumsan malesuada, arcu nulla cursus lectus, et accumsan ante risus vel dui. Maecenas risus
-                            nulla,
-                            laoreet ac facilisis non, viverra eget turpis.
+                            See your profile, upload your character sheets, and keep your Dungeon Master up to date with
+                            your character information.
                         </p>
-                        <Link to={login.path} key={login.name}>{login.name}</Link>
+                        {login ? <Link to={login.path} key={login.name}>{login.name}</Link> : <></>}
+                    </Card>
+                </div>
+                <div className="col-12 col-sm-6 col-md-4 mb-3">
+                    <Card>
+                        <h5>Maps</h5>
+                        <p>
+                            Check your map to see what you know, if your DM gave you a map key.
+                        </p>
+                        {maps ? <Link to={maps.path} key={maps.name}>{maps.name}</Link> : <></>}
+                    </Card>
+                </div>
+                <div className="col-12 col-sm-6 col-md-4 mb-3">
+                    <Card>
+                        <h5>NPC's</h5>
+                        <p>
+                            Forgotten an NPC's full name? Their location? Refresh your memory here.
+                        </p>
+                        {npcs ? <Link to={npcs.path} key={npcs.name}>{npcs.name}</Link> : <></>}
                     </Card>
                 </div>
             </div>
         </div>
-    )
-        ;
+    );
 }

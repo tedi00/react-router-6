@@ -96,6 +96,9 @@
   flex-wrap: wrap;
   text-decoration: none;
 }
+.sidebar nav .nav-anchor .nav-text {
+  overflow: hidden;
+}
 .sidebar nav .nav-anchor .nav-text:not(.w-100) {
   width: calc(100% - var(--closed-width));
 }
@@ -111,6 +114,9 @@
   background-color: #efe5fd;
 }
 .sidebar nav .nav-anchor:hover .nav-icon {
+  color: #ed6f1e !important;
+}
+.sidebar nav .nav-anchor.active .nav-icon {
   color: #ed6f1e !important;
 }
 .sidebar nav .nav-text, .sidebar nav button {
@@ -162,11 +168,15 @@
 
 .card {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  padding: 1rem;
+  padding: 1rem 1rem 2.5rem 1rem;
   height: 100%;
+  position: relative;
 }
 .card a {
   color: #3569d8;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 
 html, body {
@@ -187,6 +197,11 @@ body {
 }
 .content h1 {
   margin: 0;
+}
+
+.clipped-image {
+  position: absolute;
+  clip: rect(125px, 250px, 200px, 50px);
 }
 
 /*# sourceMappingURL=styles.css.map */
