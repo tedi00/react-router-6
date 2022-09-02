@@ -10,7 +10,7 @@ export const Maps = () => {
         mapType: "political"
     }
 
-    const {getData} = useRequests();
+    const {endpoints} = useRequests();
     const [filterData, setFilterData] = useState(defaultFilters);
 
     useEffect(() => {
@@ -29,7 +29,8 @@ export const Maps = () => {
 
     const getWithFilterData = (e) => {
         e.preventDefault();
-        const data = getData("maps", filterData);
+        const data = endpoints.get.maps(filterData);
+        //TODO: Finish getWithFilterData
         updateTable();
     }
     const resetFilters = (e) => {

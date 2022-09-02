@@ -14,6 +14,7 @@ export const useRequests = () => {
             }
         return "?" + str.join("&");
     }
+
     const getData = async (url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
@@ -36,7 +37,6 @@ export const useRequests = () => {
         });
         return res;
     }
-
     const getFile = async (url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
@@ -53,6 +53,16 @@ export const useRequests = () => {
         return res;
     }
 
+    const endpoints = {
+        get: {
+            deities: () => {return getData('deities')},
+            maps: (data) => {return getData('maps', data)},
+            characterSheet: (data) => {return getFile("getCharacterSheet", data)}
+        },
+        post: {
 
-    return {getData, postData, getFile};
+        }
+    }
+
+    return {endpoints};
 }

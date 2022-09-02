@@ -8,7 +8,7 @@ export default function Home() {
     const {getRoute} = useRoutes();
     const login = getRoute('login');
     const maps = getRoute('maps');
-    const npcs = getRoute('npcs');
+    const deities = getRoute('deities');
 
     return (
         <div className="container-fluid">
@@ -53,11 +53,11 @@ export default function Home() {
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 mb-3">
                     <Card>
-                        <h5>NPC's</h5>
+                        <h5>Deities</h5>
                         <p>
-                            Forgotten an NPC's full name? Their location? Refresh your memory here.
+                            Need a list of the gods of your world? Refresh your memory here.
                         </p>
-                        {npcs ? <Link to={npcs.path} key={npcs.name}>{npcs.name}</Link> : <></>}
+                        {deities ? <Link to={deities.path} key={deities.name}>{deities.name}</Link> : <></>}
                     </Card>
                 </div>
             </div>

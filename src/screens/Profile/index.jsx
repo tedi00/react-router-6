@@ -8,7 +8,7 @@ import {Card} from "../../components/Card";
 export const Profile = () => {
 
     const {user} = useAuth();
-    const {getFile} = useRequests();
+    const {endpoints} = useRequests();
     const [characterSheet, setCharacterSheet] = useState(<></>);
     const [hasCharSheet, setHasCharSheet] = useState(false);
 
@@ -17,9 +17,10 @@ export const Profile = () => {
     }, []);
 
     const getCharacterSheet = () => {
-        const characterSheetData = getFile("getCharacterSheet", {user: user.id});
-        if (characterSheetData.responseUrl) {
-            setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseUrl}>Download Character Sheet</a>);
+        const characterSheetData = endpoints.get.characterSheet({user: user.id});
+        //TODO: Finish getCharacterSheet
+        if (characterSheetData.responseURL) {
+            setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseURL}>Download Character Sheet</a>);
             setHasCharSheet(true);
         }
     }

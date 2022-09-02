@@ -9,7 +9,7 @@ import Home from './screens/Home'
 import {Login} from "./screens/Login";
 import {Profile} from "./screens/Profile";
 import {Maps} from "./screens/Maps";
-import {Npcs} from "./screens/Npcs";
+import {Deities} from "./screens/Deities";
 
 function App() {
     return (
@@ -17,7 +17,7 @@ function App() {
             <Route element={<HomeLayout/>}>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/maps" element={<Maps/>}/>
-                <Route path="/npcs" element={<Npcs/>}/>
+                <Route path="/deities" element={<Deities/>}/>
                 <Route path="/login" element={<Login/>}/>
             </Route>
 
