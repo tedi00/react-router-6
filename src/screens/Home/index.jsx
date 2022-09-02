@@ -37,7 +37,7 @@ export default function Home() {
                         <h5>Login</h5>
                         <p>
                             See your profile, upload your character sheets, and keep your Dungeon Master up to date with
-                            your character information.
+                            your character information. Lucky feat users will be judged.
                         </p>
                         {login ? <Link to={login.path} key={login.name}>{login.name}</Link> : <></>}
                     </Card>
@@ -46,7 +46,8 @@ export default function Home() {
                     <Card>
                         <h5>Maps</h5>
                         <p>
-                            Check your map to see what you know, if your DM gave you a map key.
+                            Check your map to see what you know, if your DM gave you a map key. Maybe one day you'll
+                            have the whole thing.
                         </p>
                         {maps ? <Link to={maps.path} key={maps.name}>{maps.name}</Link> : <></>}
                     </Card>
@@ -55,7 +56,7 @@ export default function Home() {
                     <Card>
                         <h5>Deities</h5>
                         <p>
-                            Need a list of the gods of your world? Refresh your memory here.
+                            Need a list of the gods of your world? What they represent? Refresh your memory here.
                         </p>
                         {deities ? <Link to={deities.path} key={deities.name}>{deities.name}</Link> : <></>}
                     </Card>

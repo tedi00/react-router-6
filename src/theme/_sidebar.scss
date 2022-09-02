@@ -19,7 +19,8 @@
   border-right: var(--border-right) solid colors.$blue-900;
   transform: translateX(var(--transform)); //default is closed
   transition: transform 220ms ease-in-out;
-  background-color: colors.$white;
+  background-color: colors.$white-7-opacity;
+  backdrop-filter: blur(5px);
 
   //handles behaviour of items when sidebar is open
   &.open {
@@ -139,6 +140,9 @@
       }
 
       &.active {
+        .nav-text::before {
+          content: "\226B";
+        }
         .nav-icon {
           color: colors.$orange-800 !important;
         }
