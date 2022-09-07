@@ -1,6 +1,6 @@
 import {createContext, useContext, useMemo} from "react";
 import {useNavigate} from "react-router-dom";
-import {useSessionStorage} from "../useLocalStorage";
+import {useSessionStorage} from "../useSessionStorage";
 
 const AuthContext = createContext(null);
 

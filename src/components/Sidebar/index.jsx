@@ -2,6 +2,8 @@ import {useAuth} from "../../hooks/useAuth";
 import {useState} from "react";
 import {useRoutes} from "../../hooks/useRoutes";
 import {NavLink} from "../NavLink";
+import {Switch} from "../Switch";
+import {useSessionStorage} from "../../hooks/useSessionStorage";
 
 export const Sidebar = () => {
 
@@ -10,10 +12,21 @@ export const Sidebar = () => {
         closed: ''
     }
 
-    const {routes, getRouteByPath} = useRoutes();
+    const {routes} = useRoutes();
     const {user, logout} = useAuth();
     const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
-    const currentRoute = getRouteByPath();
+    const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
+
+    function toggleSidebarOpen() {
+        setSidebarStatus(sidebarStatus === statuses.closed ? statuses.open : statuses.closed);
+    }
+
+    function closeSidebar() {
+        if(keepOpen) return;
+        if (sidebarStatus === statuses.open) {
+            setSidebarStatus(statuses.closed);
+        }
+    }
 
     //Route HTML
     const homeRoutes = routes.homeLayout.map((route) =>
@@ -21,7 +34,6 @@ export const Sidebar = () => {
             to={route.path}
             text={route.name}
             icon={route.icon}
-            active={route.path === currentRoute}
             onClick={closeSidebar}
             key={route.name}
         />
@@ -33,7 +45,6 @@ export const Sidebar = () => {
                     to={route.path}
                     text={route.name}
                     icon={route.icon}
-                    active={route.path.includes(currentRoute)}
                     onClick={closeSidebar}
                     key={route.name}
                 />
@@ -53,16 +64,6 @@ export const Sidebar = () => {
     // --!--
     let currentRoutes = user ? protectedRoutes : homeRoutes;
 
-    function toggleSidebarOpen() {
-        setSidebarStatus(sidebarStatus === statuses.closed ? statuses.open : statuses.closed);
-    }
-
-    function closeSidebar() {
-        if (sidebarStatus === statuses.open) {
-            setSidebarStatus(statuses.closed);
-        }
-    }
-
     return (
         <aside className={'sidebar' + sidebarStatus}>
 
@@ -73,6 +74,12 @@ export const Sidebar = () => {
             <nav>
                 {currentRoutes}
             </nav>
+            <footer>
+                <label className="d-flex flex-wrap align-items-center justify-content-between">
+                    <span>Keep the sidebar open</span>
+                    <Switch checked={keepOpen} handleChange={setKeepOpen} />
+                </label>
+            </footer>
         </aside>
     );
 };
