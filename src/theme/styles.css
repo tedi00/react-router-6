@@ -164,7 +164,6 @@
   background-color: #FFFFFF;
   border: 1px solid #c1c1c1;
   cursor: pointer;
-  transition: border 0.22s ease;
   --left: 2px;
   --right: 25px;
   --position: var(--left);
