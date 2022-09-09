@@ -3,6 +3,7 @@ import {Header} from "../../components/Header";
 import {useRequests} from "../../hooks/useRequests";
 import {useAuth} from "../../hooks/useAuth";
 import {Card} from "../../components/Card";
+import {FileInput} from "../../components/FileInput";
 
 
 export const Profile = () => {
@@ -20,7 +21,8 @@ export const Profile = () => {
         const characterSheetData = endpoints.get.characterSheet({user: user.id});
         //TODO: Finish getCharacterSheet
         if (characterSheetData.responseURL) {
-            setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseURL}>Download Character Sheet</a>);
+            setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseURL}>Download Character
+                Sheet</a>);
             setHasCharSheet(true);
         }
     }
@@ -38,12 +40,15 @@ export const Profile = () => {
                 <div className="row">
                     <div className="col-12 col-sm-6">
                         <Card centerContent={true}>
-                            <span>
+                            <p>
                                 {hasCharSheet ?
                                     "You have a character sheet uploaded!" :
                                     "You don't have a character sheet uploaded!"}
-                            </span>
-                            {hasCharSheet ? <><br/><span>{characterSheet}</span></> : <></>}
+                            </p>
+                            {hasCharSheet ?
+                                <><span>{characterSheet}</span></> :
+                                <><FileInput/></>
+                            }
                         </Card>
 
                     </div>
