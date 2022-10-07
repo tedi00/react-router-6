@@ -154,41 +154,6 @@
   justify-content: space-between;
   align-items: center;
 }
-.sidebar footer .react-switch {
-  box-sizing: border-box;
-  width: 45px;
-  height: 20px;
-  position: relative;
-  box-shadow: 0.2rem 0.2rem 0.4rem #bbb, -0.2rem -0.2rem 0.4rem #FFFFFF;
-  border-radius: 10px;
-  background-color: #FFFFFF;
-  border: 1px solid #c1c1c1;
-  cursor: pointer;
-  --left: 2px;
-  --right: 25px;
-  --position: var(--left);
-}
-.sidebar footer .react-switch.checked {
-  --position: var(--right);
-}
-.sidebar footer .react-switch.checked::after {
-  background-image: linear-gradient(330deg, #388eff 0%, #95cfff 100%);
-}
-.sidebar footer .react-switch::after {
-  transition: transform 0.22s linear;
-  content: "";
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  top: 1px;
-  transform: translateX(var(--position));
-  height: 16px;
-  width: 16px;
-  background-image: linear-gradient(330deg, #D0372F 0%, #d06e6e 100%);
-}
-.sidebar footer .react-switch > div {
-  height: 100%;
-}
 
 .filter-class {
   border: 1px solid #367beb;
@@ -316,6 +281,42 @@
     transform: rotateZ(1turn);
   }
 }
+.react-switch {
+  box-sizing: border-box;
+  width: 45px;
+  height: 20px;
+  position: relative;
+  box-shadow: 0.2rem 0.2rem 0.4rem #bbb, -0.2rem -0.2rem 0.4rem #FFFFFF;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #c1c1c1;
+  cursor: pointer;
+  --left: 2px;
+  --right: 25px;
+  --position: var(--left);
+}
+.react-switch.checked {
+  --position: var(--right);
+}
+.react-switch.checked::after {
+  background-image: linear-gradient(330deg, #388eff 0%, #95cfff 100%);
+}
+.react-switch::after {
+  transition: transform 0.22s linear;
+  content: "";
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  transform: translateX(var(--position));
+  height: 16px;
+  width: 16px;
+  background-image: linear-gradient(330deg, #D0372F 0%, #d06e6e 100%);
+}
+.react-switch > div {
+  height: 100%;
+}
+
 html, body {
   margin: 0;
   height: 100%;

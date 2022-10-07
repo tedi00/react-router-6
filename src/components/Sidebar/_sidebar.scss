@@ -144,6 +144,7 @@
         .nav-text {
           font-weight: bold;
         }
+
         .nav-icon {
           color: colors.$orange-800 !important;
         }
@@ -176,47 +177,12 @@
     max-height: 50px;
     padding: 7.5px;
     color: colors.$gray;
+
     label {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .react-switch {
-      box-sizing: border-box;
-      width: 45px;
-      height: 20px;
-      position: relative;
-      box-shadow: 0.2rem 0.2rem 0.4rem colors.$lightgray-2, -0.2rem -0.2rem 0.4rem colors.$white;
-      border-radius: 10px;
-      background-color: colors.$white;//#f1f1f1;
-      border: 1px solid colors.$lightgray;
-      cursor: pointer;
-      --left: 2px;
-      --right: 25px;
-      --position: var(--left);
-      &.checked {
-        --position: var(--right);
-        &::after {
-          //linear-gradient(330deg, colors.$green 0%, colors.$green-2 100%)
-          background-image: linear-gradient(330deg, colors.$blue-600 0%, colors.$blue-200 100%);
-        }
-      }
-      &::after {
-        transition: transform 0.22s linear;
-        content: "";
-        display: block;
-        border-radius: 50%;
-        position: absolute;
-        top: 1px;
-        transform: translateX(var(--position));
-        height: 16px;
-        width: 16px;
-        background-image: linear-gradient(330deg, colors.$red 0%, colors.$red-2 100%);
-      }
-      &>div {
-        height: 100%;
-      }
     }
   }
 }
