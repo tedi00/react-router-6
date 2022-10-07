@@ -7,6 +7,9 @@ export const useClasses = (baseClass) => {
     const updateState = (arr) => {
         setClassSet(new Set([...arr]));
     }
+    String.prototype.toArray = function () {
+        return this.split(" ").filter((item) => item !== "");
+    }
 
     /* Main Methods */
     const classList = () => {
@@ -16,14 +19,14 @@ export const useClasses = (baseClass) => {
 
     const addClasses = (classes) => {
         let temp = new Set([...classSet]);
-        const classArr = classes.split(" ").filter((item) => item !== "");
+        const classArr = classes.toArray();
         classArr.forEach(className => temp.add(className));
         updateState(temp);
     };
 
     const removeClasses = (classes) => {
         let temp = new Set([...classSet]);
-        const classArr = classes.split(" ").filter((item) => item !== "");
+        const classArr = classes.toArray();
         classArr.forEach((className) => {
             temp.delete(className)
         });
@@ -34,7 +37,7 @@ export const useClasses = (baseClass) => {
         if (keepBaseClass || classes === "") {
             classes += " " + baseClass;
         }
-        const classArr = classes.split(" ").filter((item) => item !== "");
+        const classArr = classes.toArraySanitized();
         updateState(classArr);
     }
 
