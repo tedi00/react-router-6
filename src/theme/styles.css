@@ -273,10 +273,13 @@
   border: 10px solid;
   border-color: #5300e8 transparent transparent #388eff;
   border-radius: 50%;
-  animation: rotate 5s cubic-bezier(0.35, -0.14, 0.79, 1.22) infinite;
+  animation: rotate 5s cubic-bezier(0.1, 0, 0.9, 1) infinite;
 }
 
 @keyframes rotate {
+  50% {
+    transform: rotateZ(0.5turn);
+  }
   100% {
     transform: rotateZ(1turn);
   }
