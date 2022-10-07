@@ -1,5 +1,4 @@
 import {useAuth} from "../../hooks/useAuth";
-import {useState} from "react";
 import {NavLink} from "../NavLink";
 import {Switch} from "../Switch";
 import {useSessionStorage} from "../../hooks/useSessionStorage";
@@ -16,15 +15,15 @@ export const Sidebar = () => {
     const {routes} = Routing();
     const {user, logout} = useAuth();
     const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
-    const classList = useClasses("sidebar");
+    const [classList, classHandler] = useClasses("sidebar");
 
     function toggleSidebarOpen() {
-        classList.has(statuses.open) ? classList.remove(statuses.open) : classList.add(statuses.open);
+        classHandler.has(statuses.open) ? classHandler.remove(statuses.open) : classHandler.add(statuses.open);
     }
 
     function closeSidebar() {
         if (keepOpen) return;
-        classList.reset();
+        classHandler.reset();
     }
 
     //Route HTML
@@ -64,7 +63,7 @@ export const Sidebar = () => {
     let currentRoutes = user ? protectedRoutes : homeRoutes;
 
     return (
-        <aside className={classList.list} /*className={'sidebar' + sidebarStatus}*/>
+        <aside className={classList} /*className={'sidebar' + sidebarStatus}*/>
 
             <button onClick={toggleSidebarOpen} className="toggle">
                 <p>Navigate</p>
