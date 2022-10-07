@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const ApiHelpers = () => {
+    const BASE_URL = "/";
 
     const stringifyData = (data) => {
         if(data === {}) {
@@ -14,7 +15,7 @@ export const ApiHelpers = () => {
         return "?" + str.join("&");
     }
 
-    const getData = async (BASE_URL, url, data = {}) => {
+    const getData = async (url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
         await axios.get(BASE_URL + url + dataString)
@@ -26,7 +27,7 @@ export const ApiHelpers = () => {
             });
         return res;
     }
-    const postData = async (BASE_URL, url, data) => {
+    const postData = async (url, data) => {
         let res;
         await axios.post(BASE_URL + url, data)
             .then((response) => {
@@ -36,7 +37,7 @@ export const ApiHelpers = () => {
         });
         return res;
     }
-    const getFile = async (BASE_URL, url, data = {}) => {
+    const getFile = async (url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
         await axios({
@@ -51,5 +52,5 @@ export const ApiHelpers = () => {
         });
         return res;
     }
-    return {getData, postData, getFile};
+    return {getData, postData, getFile, BASE_URL};
 }

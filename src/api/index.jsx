@@ -1,14 +1,13 @@
 import {ApiHelpers} from "./api-helpers";
 
 export const Api = () => {
-    const BASE_URL = "/";
     const {getData, getFile} = ApiHelpers();
 
     const endpoints = {
         get: {
-            deities: () => {return getData(BASE_URL, 'deities')},
-            maps: (data) => {return getData(BASE_URL, 'maps', data)},
-            characterSheet: (data) => {return getFile(BASE_URL, "getCharacterSheet", data)}
+            deities: () => {return getData( 'deities')},
+            maps: (data) => {return getData('maps', data)},
+            characterSheet: (data) => {return getFile( "getCharacterSheet", data)}
         },
         post: {
 
