@@ -4,6 +4,7 @@ import {useRequests} from "../../hooks/useRequests";
 import {useAuth} from "../../hooks/useAuth";
 import {Card} from "../../components/Card";
 import {FileInput} from "../../components/FileInput";
+import {Modal} from "../../components/Modal";
 
 
 export const Profile = () => {

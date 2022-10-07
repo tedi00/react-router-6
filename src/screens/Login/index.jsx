@@ -1,19 +1,28 @@
 import {useAuth} from "../../hooks/useAuth";
 import {Header} from "../../components/Header";
+import {useState, useTransition} from "react";
+import {LoadingScreen} from "../../components/LoadingScreen";
 
 export const Login = () => {
     const {login} = useAuth();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login({
-            email: "email",
-            password: "password"
-        });
+        setLoading(true);
+        setTimeout(() => {
+            login({
+                email: "email",
+                password: "password"
+            }).then(() => {
+                setLoading(false);
+            });
+        }, 4000);
     };
 
     return (
         <>
+            {loading && <LoadingScreen/>}
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12">

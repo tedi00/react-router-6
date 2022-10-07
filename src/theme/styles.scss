@@ -3,14 +3,20 @@
 @import "filter";
 @import "card";
 @import "file-input";
+@import "modal";
+@import "loading-screen";
 
 html, body {
   margin: 0;
-  min-height: 200vh;
+  height: 100%;
 }
 
 body {
   background-color: colors.$white;
+}
+
+#root, .wrapper {
+  height: 100%;
 }
 
 .wrapper {
