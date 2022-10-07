@@ -3,23 +3,24 @@ import {useState} from "react";
 export const useClasses = (baseClass) => {
     const [classSet, setClassSet] = useState(new Set([baseClass]));
 
-    /* Helpers */
-    const classList = () => {
-        const setArray = Array.from(classSet);
-        return setArray.join(" ");
-    }
+    /* Helper */
     const updateState = (arr) => {
-        // if (arr instanceof Set) setClassSet(arr); else
         setClassSet(new Set([...arr]));
     }
 
     /* Main Methods */
+    const classList = () => {
+        const setArray = Array.from(classSet);
+        return setArray.join(" ");
+    }
+
     const addClasses = (classes) => {
         let temp = new Set([...classSet]);
         const classArr = classes.split(" ").filter((item) => item !== "");
         classArr.forEach(className => temp.add(className));
         updateState(temp);
     };
+
     const removeClasses = (classes) => {
         let temp = new Set([...classSet]);
         const classArr = classes.split(" ").filter((item) => item !== "");
@@ -28,14 +29,15 @@ export const useClasses = (baseClass) => {
         });
         updateState(temp);
     }
+
     const setClasses = (classes, keepBaseClass) => {
         if (keepBaseClass || classes === "") {
             classes += " " + baseClass;
         }
         const classArr = classes.split(" ").filter((item) => item !== "");
-        let temp = new Set(classArr);
-        updateState(temp);
+        updateState(classArr);
     }
+
     const hasClass = (className) => {
         return classSet.has(className);
     }
@@ -54,5 +56,6 @@ export const useClasses = (baseClass) => {
             setClasses(classList, keepBaseClass)
         }
     }
+
     return [classList(), classHandlers];
 }
