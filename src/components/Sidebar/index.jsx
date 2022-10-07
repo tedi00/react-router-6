@@ -1,9 +1,9 @@
 import {useAuth} from "../../hooks/useAuth";
 import {useState} from "react";
-import {useRoutes} from "../../hooks/useRoutes";
 import {NavLink} from "../NavLink";
 import {Switch} from "../Switch";
 import {useSessionStorage} from "../../hooks/useSessionStorage";
+import {Routing} from "../../routing";
 
 export const Sidebar = () => {
 
@@ -12,7 +12,7 @@ export const Sidebar = () => {
         closed: ''
     }
 
-    const {routes} = useRoutes();
+    const {routes} = Routing();
     const {user, logout} = useAuth();
     const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
     const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);

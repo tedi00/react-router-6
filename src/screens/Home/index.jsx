@@ -1,11 +1,11 @@
 import {Header} from "../../components/Header";
 import {Card} from "../../components/Card";
 import {Link} from "react-router-dom";
-import {useRoutes} from "../../hooks/useRoutes";
+import {Routing} from "../../routing";
 
 export default function Home() {
 
-    const {getRoute} = useRoutes();
+    const {getRoute} = Routing();
     const login = getRoute('login');
     const maps = getRoute('maps');
     const deities = getRoute('deities');

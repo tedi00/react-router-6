@@ -1,4 +1,4 @@
-@use "colors";
+@use "../../../src/theme/colors";
 
 .loading-screen {
   background-color: colors.$blue-50;

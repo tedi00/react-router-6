@@ -1,4 +1,4 @@
-@use 'colors';
+@use '../../../src/theme/colors';
 
 .filter-class {
   border: 1px solid colors.$blue-700;

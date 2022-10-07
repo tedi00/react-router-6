@@ -1,7 +1,6 @@
 import axios from "axios";
 
-export const useRequests = () => {
-    const BASE_URL = "/";
+export const ApiHelpers = () => {
 
     const stringifyData = (data) => {
         if(data === {}) {
@@ -15,21 +14,21 @@ export const useRequests = () => {
         return "?" + str.join("&");
     }
 
-    const getData = async (url, data = {}) => {
+    const getData = async (BASE_URL, url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
         await axios.get(BASE_URL + url + dataString)
             .then((response) => {
                 res = response;
             }).catch((error) => {
-            console.error(error);
-            res = error;
-        });
+                console.error(error);
+                res = error;
+            });
         return res;
     }
-    const postData = async (url, data) => {
+    const postData = async (BASE_URL, url, data) => {
         let res;
-        await axios.post(url, data)
+        await axios.post(BASE_URL + url, data)
             .then((response) => {
                 res = response;
             }).catch((error) => {
@@ -37,7 +36,7 @@ export const useRequests = () => {
         });
         return res;
     }
-    const getFile = async (url, data = {}) => {
+    const getFile = async (BASE_URL, url, data = {}) => {
         const dataString = stringifyData(data);
         let res;
         await axios({
@@ -52,17 +51,5 @@ export const useRequests = () => {
         });
         return res;
     }
-
-    const endpoints = {
-        get: {
-            deities: () => {return getData('deities')},
-            maps: (data) => {return getData('maps', data)},
-            characterSheet: (data) => {return getFile("getCharacterSheet", data)}
-        },
-        post: {
-
-        }
-    }
-
-    return {endpoints};
+    return {getData, postData, getFile};
 }

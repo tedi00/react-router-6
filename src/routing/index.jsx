@@ -1,6 +1,6 @@
 import {useLocation} from "react-router-dom"
 
-export const useRoutes = () => {
+export const Routing = () => {
     const location = useLocation();
     const pathname = location.pathname;
 

@@ -1,7 +1,7 @@
 import {Header} from "../../components/Header";
 import {Filter} from "../../components/Filter";
 import {useState, useEffect} from "react";
-import {useRequests} from "../../hooks/useRequests";
+import {Api} from "../../api";
 
 export const Maps = () => {
 
@@ -10,7 +10,7 @@ export const Maps = () => {
         mapType: "political"
     }
 
-    const {endpoints} = useRequests();
+    const {endpoints} = Api();
     const [filterData, setFilterData] = useState(defaultFilters);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export const Maps = () => {
 
     const getWithFilterData = (e) => {
         e.preventDefault();
-        const data = endpoints.get.maps(filterData);
+        // const data = endpoints.get.maps(filterData);
         //TODO: Finish getWithFilterData
         updateTable();
     }

@@ -1,6 +1,6 @@
 import {useAuth} from "../../hooks/useAuth";
 import {Header} from "../../components/Header";
-import {useState, useTransition} from "react";
+import {useState} from "react";
 import {LoadingScreen} from "../../components/LoadingScreen";
 
 export const Login = () => {

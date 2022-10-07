@@ -1,16 +1,15 @@
 import {useEffect, useState} from "react";
 import {Header} from "../../components/Header";
-import {useRequests} from "../../hooks/useRequests";
 import {useAuth} from "../../hooks/useAuth";
 import {Card} from "../../components/Card";
 import {FileInput} from "../../components/FileInput";
-import {Modal} from "../../components/Modal";
+import {Api} from "../../api";
 
 
 export const Profile = () => {
 
     const {user} = useAuth();
-    const {endpoints} = useRequests();
+    const {endpoints} = Api();
     const [characterSheet, setCharacterSheet] = useState(<></>);
     const [hasCharSheet, setHasCharSheet] = useState(false);
 

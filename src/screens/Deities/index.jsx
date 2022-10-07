@@ -1,12 +1,12 @@
 import {Header} from "../../components/Header";
 import {useEffect, useState} from "react";
 import {Card} from "../../components/Card";
-import {useRequests} from "../../hooks/useRequests";
+import {Api} from "../../api";
 
 export const Deities = () => {
 
     const [deities, setDeities] = useState([]);
-    const {endpoints} = useRequests();
+    const {endpoints} = Api();
 
     const getDeities = () => {
         const deityData = endpoints.get.deities();
