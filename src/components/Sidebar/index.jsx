@@ -4,28 +4,27 @@ import {NavLink} from "../NavLink";
 import {Switch} from "../Switch";
 import {useSessionStorage} from "../../hooks/useSessionStorage";
 import {Routing} from "../../routing";
+import {useClasses} from "../../hooks/useClasses";
 
 export const Sidebar = () => {
 
     const statuses = {
-        open: ' open',
+        open: 'open',
         closed: ''
     }
 
     const {routes} = Routing();
     const {user, logout} = useAuth();
-    const [sidebarStatus, setSidebarStatus] = useState(statuses.closed);
     const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
+    const classList = useClasses("sidebar");
 
     function toggleSidebarOpen() {
-        setSidebarStatus(sidebarStatus === statuses.closed ? statuses.open : statuses.closed);
+        classList.has(statuses.open) ? classList.remove(statuses.open) : classList.add(statuses.open);
     }
 
     function closeSidebar() {
-        if(keepOpen) return;
-        if (sidebarStatus === statuses.open) {
-            setSidebarStatus(statuses.closed);
-        }
+        if (keepOpen) return;
+        classList.reset();
     }
 
     //Route HTML
@@ -65,7 +64,7 @@ export const Sidebar = () => {
     let currentRoutes = user ? protectedRoutes : homeRoutes;
 
     return (
-        <aside className={'sidebar' + sidebarStatus}>
+        <aside className={classList.list} /*className={'sidebar' + sidebarStatus}*/>
 
             <button onClick={toggleSidebarOpen} className="toggle">
                 <p>Navigate</p>
@@ -77,7 +76,7 @@ export const Sidebar = () => {
             <footer>
                 <label className="d-flex flex-wrap align-items-center justify-content-between">
                     <span>Keep the sidebar open</span>
-                    <Switch checked={keepOpen} handleChange={setKeepOpen} />
+                    <Switch checked={keepOpen} handleChange={setKeepOpen}/>
                 </label>
             </footer>
         </aside>

@@ -10,7 +10,6 @@ export const Deities = () => {
 
     const getDeities = () => {
         const deityData = endpoints.get.deities();
-        console.log(deityData);
         //TODO: Finish getDeities
         setDeities([]);
     }
