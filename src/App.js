@@ -9,6 +9,8 @@ import {Login} from "./screens/Login";
 import {Profile} from "./screens/Profile";
 import {Maps} from "./screens/Maps";
 import {Deities} from "./screens/Deities";
+import {Settings} from "./screens/Settings";
+import React from "react";
 
 function App() {
     return (
@@ -18,10 +20,12 @@ function App() {
                 <Route path="/maps" element={<Maps/>}/>
                 <Route path="/deities" element={<Deities/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/settings" element={<Settings/>}/>
             </Route>
 
             <Route path="/dashboard" element={<ProtectedLayout/>}>
                 <Route path="profile" element={<Profile/>}/>
+                <Route path="settings" element={<Settings/>}/>
             </Route>
         </Routes>
     );

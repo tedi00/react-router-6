@@ -1,9 +1,9 @@
 import {useAuth} from "../../hooks/useAuth";
 import {NavLink} from "../NavLink";
-import {Switch} from "../Switch";
-import {useSessionStorage} from "../../hooks/useSessionStorage";
 import {Routing} from "../../routing";
 import {useClasses} from "../../hooks/useClasses";
+import React from "react";
+import {useSettings} from "../../hooks/useSettings";
 
 export const Sidebar = () => {
 
@@ -12,45 +12,53 @@ export const Sidebar = () => {
         closed: ''
     }
 
-    const {routes} = Routing();
+    const {routes, getRoute} = Routing();
     const {user, logout} = useAuth();
-    const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
+    const {settings} = useSettings();
+    // const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
     const [classList, classHandler] = useClasses("sidebar");
+    const settingsRoute = getRoute('settings');
 
     function toggleSidebarOpen() {
         classHandler.has(statuses.open) ? classHandler.remove(statuses.open) : classHandler.add(statuses.open);
     }
 
     function closeSidebar() {
-        if (keepOpen) return;
+        if (settings.keepSidebarOpen) return;
         classHandler.reset();
     }
 
     //Route HTML
-    const homeRoutes = routes.homeLayout.map((route) =>
-        <NavLink
-            to={route.path}
-            text={route.name}
-            icon={route.icon}
-            onClick={closeSidebar}
-            key={route.name}
-        />
+    const homeRoutes = (
+        <>
+            {routes.homeLayout.map((route) =>
+                (route.name !== settingsRoute.name &&
+                    <NavLink
+                        to={route.path}
+                        text={route.name}
+                        icon={route.icon}
+                        onClick={closeSidebar}
+                        key={route.name}
+                    />)
+            )}
+        </>
     );
     const protectedRoutes = (
         <>
             {routes.protectedLayout.map((route) =>
-                <NavLink
-                    to={route.path}
-                    text={route.name}
-                    icon={route.icon}
-                    onClick={closeSidebar}
-                    key={route.name}
-                />
+                (route.name !== settingsRoute.name &&
+                    <NavLink
+                        to={route.path}
+                        text={route.name}
+                        icon={route.icon}
+                        onClick={closeSidebar}
+                        key={route.name}
+                    />)
             )}
             <NavLink
                 to={"/"}
                 text={"Logout"}
-                icon={<i className="bi bi-box-arrow-in-right"></i>}
+                icon={<i className="bi bi-box-arrow-in-right"/>}
                 onClick={() => {
                     closeSidebar();
                     logout();
@@ -67,16 +75,23 @@ export const Sidebar = () => {
 
             <button onClick={toggleSidebarOpen} className="toggle">
                 <p>Navigate</p>
-                <span aria-label={'toggle'}></span>
+                <span aria-label={'toggle'}/>
             </button>
             <nav>
                 {currentRoutes}
             </nav>
             <footer>
-                <label className="d-flex flex-wrap align-items-center justify-content-between">
-                    <span>Keep the sidebar open</span>
-                    <Switch checked={keepOpen} handleChange={setKeepOpen}/>
-                </label>
+                {/*<label className="d-flex flex-wrap align-items-center justify-content-between">*/}
+                {/*    <span>Keep the sidebar open</span>*/}
+                {/*    <Switch checked={keepOpen} handleChange={setKeepOpen}/>*/}
+                {/*</label>*/}
+                <NavLink
+                    to={settingsRoute.path}
+                    text={settingsRoute.name}
+                    icon={settingsRoute.icon}
+                    onClick={closeSidebar}
+                    key={settingsRoute.name}
+                />
             </footer>
         </aside>
     );

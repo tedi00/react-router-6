@@ -1,4 +1,5 @@
 import {useLocation} from "react-router-dom"
+import React from "react";
 
 export const Routing = () => {
     const location = useLocation();
@@ -6,13 +7,15 @@ export const Routing = () => {
 
     const routes = {
         protectedLayout: [
-            {path: "/dashboard/profile", name: "Profile", icon: (<i className="bi bi-person"></i>)}
+            {path: "/dashboard/profile", name: "Profile", icon: (<i className="bi bi-person"/>)},
+            {path: "/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
         ],
         homeLayout: [
-            {path: "/", name: "Home", icon: (<i className="bi bi-house"></i>)},
-            {path: "/maps", name: "Maps", icon: (<i className="bi bi-map"></i>)},
-            {path: "/deities", name: "Deities", icon: (<i className="bi bi-stars"></i>)},
-            {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"></i>)}
+            {path: "/", name: "Home", icon: (<i className="bi bi-house"/>)},
+            {path: "/maps", name: "Maps", icon: (<i className="bi bi-map"/>)},
+            {path: "/deities", name: "Deities", icon: (<i className="bi bi-stars"/>)},
+            {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"/>)},
+            {path: "/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
         ]
     }
 

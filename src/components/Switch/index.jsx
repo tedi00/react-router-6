@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Switch = ({checked, handleChange, ...props}) => {
     let classes = "react-switch";
     classes += props.classes ? props.classes : "";

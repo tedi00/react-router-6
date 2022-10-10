@@ -1,3 +1,5 @@
+@use "../../../src/theme/colors";
+
 .file-input {
   position: relative;
   z-index: 10;
@@ -5,7 +7,7 @@
   height: 30px;
   padding: 0 .5rem;
   cursor: pointer !important;
-  border: 1px solid #676774;
+  border: 1px solid colors.$gray;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -20,7 +22,7 @@
   }
 
   &:hover {
-    border-color: black;
+    border-color: colors.$black;
   }
 
   input[type="file"] {
