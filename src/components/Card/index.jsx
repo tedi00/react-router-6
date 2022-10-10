@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Card = (props) => {
     let classes = "card"
     classes = (props.className ? classes+` ${props.className}` : classes);

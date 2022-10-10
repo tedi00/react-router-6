@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Filter = ({submitFilter, reset, ...props}) => {
     const submitText = props.submitText ? props.submitText : "Apply Filters";
     const resetText = props.resetText ? props.resetText : "Reset";

@@ -2,6 +2,7 @@ import {Header} from "../../components/Header";
 import {Card} from "../../components/Card";
 import {Link} from "react-router-dom";
 import {Routing} from "../../routing";
+import React from "react";
 
 export default function Home() {
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Modal = (props) => {
     let classes = "react-modal"
     classes = (props.className ? classes+` ${props.className}` : classes);

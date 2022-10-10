@@ -1,4 +1,5 @@
 import {NavLink as NavigationLink} from "react-router-dom";
+import React from "react";
 
 export const NavLink = ({to, text, ...props}) => {
     let classes = "nav-anchor"

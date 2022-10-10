@@ -1,6 +1,7 @@
 import {Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../../hooks/useAuth";
 import {Sidebar} from "../Sidebar";
+import React from "react";
 
 export const HomeLayout = () => {
 
