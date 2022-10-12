@@ -4,6 +4,7 @@ import {Routing} from "../../routing";
 import {useClasses} from "../../hooks/useClasses";
 import React from "react";
 import {useSettings} from "../../hooks/useSettings";
+import {RoutingHelpers} from "../../routing/routing-helpers";
 
 export const Sidebar = () => {
 
@@ -12,7 +13,8 @@ export const Sidebar = () => {
         closed: ''
     }
 
-    const {routes, getRoute} = Routing();
+    const {routes} = Routing();
+    const {getRoute} = RoutingHelpers();
     const {user, logout} = useAuth();
     const {settings} = useSettings();
     const [classList, classHandler] = useClasses("sidebar");

@@ -1,8 +1,6 @@
 import React from "react";
-import {RoutingHelpers} from "./routing-helpers";
 
 export const Routing = () => {
-    const {getRoute, getRouteByPath} = RoutingHelpers();
 
     const routes = {
         protectedLayout: [
@@ -18,5 +16,5 @@ export const Routing = () => {
         ]
     }
 
-    return {routes, getRoute, getRouteByPath}
+    return {routes}
 }

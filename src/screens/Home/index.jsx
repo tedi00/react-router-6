@@ -1,12 +1,12 @@
 import {Header} from "../../components/Header";
 import {Card} from "../../components/Card";
 import {Link} from "react-router-dom";
-import {Routing} from "../../routing";
 import React from "react";
+import {RoutingHelpers} from "../../routing/routing-helpers";
 
 export default function Home() {
 
-    const {getRoute} = Routing();
+    const {getRoute} = RoutingHelpers();
     const login = getRoute('login');
     const maps = getRoute('maps');
     const deities = getRoute('deities');
