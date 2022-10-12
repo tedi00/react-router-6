@@ -7,7 +7,7 @@ export const Api = () => {
         get: {
             deities: () => {return getData( 'deities')},
             maps: (data) => {return getData('maps', data)},
-            characterSheet: (data) => {return getFile( "getCharacterSheet", data)}
+            characterSheet: (data) => {return getFile( "getCharacterSheet", data, true)}
         },
         post: {
 
