@@ -1,9 +1,8 @@
-import {useLocation} from "react-router-dom"
 import React from "react";
+import {RoutingHelpers} from "./routing-helpers";
 
 export const Routing = () => {
-    const location = useLocation();
-    const pathname = location.pathname;
+    const {getRoute, getRouteByPath} = RoutingHelpers();
 
     const routes = {
         protectedLayout: [
@@ -17,18 +16,6 @@ export const Routing = () => {
             {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"/>)},
             {path: "/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
         ]
-    }
-
-    const getRoute = (name) => {
-        return routes.protectedLayout.find(route => route.name.toLowerCase() === name.toLowerCase()) ||
-            routes.homeLayout.find(route => route.name.toLowerCase() === name.toLowerCase());
-    }
-    const getRouteByPath = (path) => {
-        if (!path) {
-            return pathname;
-        }
-        return routes.protectedLayout.find(route => route.path.toLowerCase() === path.toLowerCase()) ||
-            routes.homeLayout.find(route => route.path.toLowerCase() === path.toLowerCase());
     }
 
     return {routes, getRoute, getRouteByPath}
