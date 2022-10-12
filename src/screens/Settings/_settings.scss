@@ -10,4 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .settings-text {
+    max-width: calc(100% - 45px - 1rem);
+    margin-right: 1rem;
+  }
 }

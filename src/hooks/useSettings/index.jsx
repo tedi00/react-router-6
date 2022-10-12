@@ -5,13 +5,14 @@ const SettingsContext = createContext(null);
 
 export const SettingsProvider = ({children}) => {
     const defaultSettings = {
-        keepSidebarOpen: false
+        keepSidebarOpen: false,
+        darkMode: false,
     }
     const [settings, setSettings] = useSessionStorage("settings", defaultSettings);
 
     const setData = async (data) => {
         setSettings({
-            ...defaultSettings,
+            ...settings,
             ...data
         });
     };

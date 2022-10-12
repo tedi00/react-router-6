@@ -108,6 +108,9 @@
   nav, footer {
     display: flex;
     flex-direction: column;
+    height: calc(100% - 60px); // 60 = top button
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .nav-anchor {
       a {
