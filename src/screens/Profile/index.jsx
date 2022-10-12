@@ -18,13 +18,14 @@ export const Profile = () => {
     }, []);
 
     const getCharacterSheet = () => {
-        const characterSheetData = endpoints.get.characterSheet({user: user.id});
+        // const characterSheetData = endpoints.get.characterSheet({user: user.id});
         //TODO: Finish getCharacterSheet
-        if (characterSheetData.responseURL) {
-            setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseURL}>Download Character
-                Sheet</a>);
-            setHasCharSheet(true);
-        }
+
+        // if (characterSheetData.responseURL) {
+        //     setCharacterSheet(<a download="characterSheet.pdf" href={characterSheetData.responseURL}>Download Character
+        //         Sheet</a>);
+        //     setHasCharSheet(true);
+        // }
     }
 
     return (

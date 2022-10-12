@@ -9,7 +9,7 @@ export const Deities = () => {
     const {endpoints} = Api();
 
     const getDeities = () => {
-        const deityData = endpoints.get.deities();
+        // const deityData = endpoints.get.deities();
         //TODO: Finish getDeities
         setDeities([]);
     }
