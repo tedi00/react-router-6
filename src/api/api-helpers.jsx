@@ -1,5 +1,5 @@
 import axios from "axios";
-import authHeader from "../hooks/useAuth/auth-header";
+import AuthHeader from "../hooks/useAuth/auth-header";
 
 export const ApiHelpers = () => {
     const BASE_URL = "/";
@@ -19,7 +19,7 @@ export const ApiHelpers = () => {
     const getData = async (url, data = {}, headers = false) => {
         const dataString = stringifyData(data);
         let res;
-        await axios.get(BASE_URL + url + dataString, (headers? { headers: authHeader() } : {}))
+        await axios.get(BASE_URL + url + dataString, (headers? { headers: AuthHeader() } : {}))
             .then((response) => {
                 res = response;
             }).catch((error) => {
@@ -30,7 +30,7 @@ export const ApiHelpers = () => {
     }
     const postData = async (url, data, headers = false) => {
         let res;
-        await axios.post(BASE_URL + url, data, (headers? { headers: authHeader() } : {}))
+        await axios.post(BASE_URL + url, data, (headers? { headers: AuthHeader() } : {}))
             .then((response) => {
                 res = response;
             }).catch((error) => {
@@ -45,7 +45,7 @@ export const ApiHelpers = () => {
             url: BASE_URL + url + dataString, //your url
             method: 'GET',
             responseType: 'blob', // important
-        }, (headers? { headers: authHeader() } : {})).then((response) => {
+        }, (headers? { headers: AuthHeader() } : {})).then((response) => {
             res = {...response};
             res.responseURL = window.URL.createObjectURL(new Blob([response.data]));
         }).catch((error) => {
