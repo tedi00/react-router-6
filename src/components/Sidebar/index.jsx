@@ -15,7 +15,6 @@ export const Sidebar = () => {
     const {routes, getRoute} = Routing();
     const {user, logout} = useAuth();
     const {settings} = useSettings();
-    // const [keepOpen, setKeepOpen] = useSessionStorage("switchKeepOpen", false);
     const [classList, classHandler] = useClasses("sidebar");
     const settingsRoute = getRoute('settings');
 
@@ -67,11 +66,11 @@ export const Sidebar = () => {
             />
         </>
     );
-    // --!--
+
     let currentRoutes = user ? protectedRoutes : homeRoutes;
 
     return (
-        <aside className={classList} /*className={'sidebar' + sidebarStatus}*/>
+        <aside className={classList}>
 
             <button onClick={toggleSidebarOpen} className="toggle">
                 <p>Navigate</p>
@@ -81,10 +80,6 @@ export const Sidebar = () => {
                 {currentRoutes}
             </nav>
             <footer>
-                {/*<label className="d-flex flex-wrap align-items-center justify-content-between">*/}
-                {/*    <span>Keep the sidebar open</span>*/}
-                {/*    <Switch checked={keepOpen} handleChange={setKeepOpen}/>*/}
-                {/*</label>*/}
                 <NavLink
                     to={settingsRoute.path}
                     text={settingsRoute.name}
