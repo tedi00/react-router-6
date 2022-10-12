@@ -1,6 +1,6 @@
 import {useAuth} from "./index";
 
-export default function authHeader() {
+export default function AuthHeader() {
     const {user} = useAuth();
 
     if (user && user.accessToken) {
