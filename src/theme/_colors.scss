@@ -52,3 +52,21 @@ $box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 $dark: #252526;
 $dark-text: #f1f1f2;
 $dark-box-shadow: rgba(190, 190, 190, 0.2);
+
+/*  Themes  */
+
+$theme-light: (
+        "background": $white,
+        "text-color": $black,
+        "btn-background": $blue-700,
+        "btn-background-hover": $blue-500,
+        "btn-text-color": $white
+);
+
+$theme-dark: (
+        "background": $dark,
+        "text-color": $white,
+        "btn-background": $blue-700,
+        "btn-background-hover": $blue-500,
+        "btn-text-color": $white
+);

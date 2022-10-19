@@ -8,23 +8,43 @@
 @import "../../src/components/Switch/switch";
 @import "../../src/screens/Settings/settings";
 
+// Theming helpers
+@function light($string) {
+  @return map-get(colors.$theme-light, $string)
+}
+@function dark($string) {
+  @return map-get(colors.$theme-dark, $string)
+}
+
+// Setting theme
 :root {
-  --content-background-color: #{colors.$white};
-  --content-text-color: #{colors.$black}
+  --background-color: #{light("background")};
+  --text-color: #{light("text-color")};
+  --btn-background: #{light("btn-background")};
+  --btn-background-hover: #{light("btn-background-hover")};
 }
 
 .theme-dark {
-  --content-background-color: #{colors.$dark};
-  --content-text-color: #{colors.$dark-text};
+  --background-color: #{dark("background")};
+  --text-color: #{dark("text-color")};
 }
+/*
+bg $white
+text $black
+btn-bg $blue-700
+btn-bg-hover $blue-500
+btn-text $white
+*/
 
+// Layering theme for cascading ease
 @layer theme {
   .content {
-    background-color: var(--content-background-color);
-    color: var(--content-text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 }
 
+// General styling
 html, body {
   margin: 0;
   height: 100%;
@@ -57,7 +77,7 @@ body {
 }
 
 .btn-blue {
-  background-color: colors.$blue-700;
+  background-color: var(--btn-background);
   color: colors.$white;
   border: none;
 

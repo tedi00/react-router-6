@@ -1,3 +1,5 @@
+/*  Themes  */
+/*  Themes  */
 * {
   box-sizing: border-box;
 }
@@ -157,6 +159,7 @@
   align-items: center;
 }
 
+/*  Themes  */
 .filter-class {
   border: 1px solid #367beb;
   border-radius: 0.25rem 0.25rem 0 0;
@@ -177,6 +180,7 @@
   margin-top: 2rem;
 }
 
+/*  Themes  */
 :root {
   --card-box-shadow-color: rgba(190, 190, 190, 0.2);
   --card-a-color: #3569d8;
@@ -204,6 +208,7 @@
   left: 1rem;
 }
 
+/*  Themes  */
 .file-input {
   position: relative;
   z-index: 10;
@@ -252,6 +257,7 @@
     width: 3ch;
   }
 }
+/*  Themes  */
 .modal-wrapper {
   position: fixed;
   top: 0;
@@ -271,6 +277,7 @@
   background-color: #FFFFFF;
 }
 
+/*  Themes  */
 .loading-screen {
   background-color: #e4f3ff;
   position: absolute;
@@ -300,6 +307,7 @@
     transform: rotateZ(1turn);
   }
 }
+/*  Themes  */
 .react-switch {
   box-sizing: border-box;
   width: 45px;
@@ -336,6 +344,7 @@
   height: 100%;
 }
 
+/*  Themes  */
 .settings-container {
   max-width: 700px;
   margin: auto;
@@ -352,19 +361,28 @@
 }
 
 :root {
-  --content-background-color: #FFFFFF;
-  --content-text-color: #000000 ;
+  --background-color: #FFFFFF;
+  --text-color: #000000;
+  --btn-background: #367beb;
+  --btn-background-hover: #379dff;
 }
 
 .theme-dark {
-  --content-background-color: #252526;
-  --content-text-color: #f1f1f2;
+  --background-color: #252526;
+  --text-color: #FFFFFF;
 }
 
+/*
+bg $white
+text $black
+btn-bg $blue-700
+btn-bg-hover $blue-500
+btn-text $white
+*/
 @layer theme {
   .content {
-    background-color: var(--content-background-color);
-    color: var(--content-text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 }
 html, body {
@@ -398,7 +416,7 @@ body {
 }
 
 .btn-blue {
-  background-color: #367beb;
+  background-color: var(--btn-background);
   color: #FFFFFF;
   border: none;
 }
