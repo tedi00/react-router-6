@@ -275,22 +275,30 @@
   }
 }
 .modal-wrapper {
+  display: none;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   backdrop-filter: brightness(40%);
-  display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+}
+.modal-wrapper.active {
+  display: flex;
 }
 .modal-wrapper .react-modal {
   max-width: 60%;
   min-width: 100px;
   min-height: 100px;
   background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+.modal-wrapper .react-modal .modal-footer {
+  justify-content: center;
 }
 
 .loading-screen {

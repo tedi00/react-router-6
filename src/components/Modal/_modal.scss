@@ -1,13 +1,16 @@
 @use '../../../src/theme/colors';
 
 .modal-wrapper {
+  display: none;
+  &.active {
+    display: flex;
+  }
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   backdrop-filter: brightness(40%);
-  display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -16,5 +19,10 @@
     min-width: 100px;
     min-height: 100px;
     background-color: colors.$white;
+    display: flex;
+    flex-direction: column;
+    .modal-footer {
+      justify-content: center;
+    }
   }
 }

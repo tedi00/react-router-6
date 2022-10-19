@@ -1,16 +1,17 @@
 import {useState} from "react";
 
 export const useClasses = (baseClass) => {
-    const [classSet, setClassSet] = useState(new Set([baseClass]));
 
     /* Helper */
-    const updateState = (arr) => {
-        setClassSet(new Set([...arr]));
-    }
-
     const toArray = (str) => {
         if (typeof str !== "string") return [];
         return str.split(" ").filter((item) => item !== "");
+    }
+
+    const [classSet, setClassSet] = useState(new Set(toArray(baseClass)));
+
+    const updateState = (arr) => {
+        setClassSet(new Set([...arr]));
     }
 
     /* Main Methods */
@@ -27,8 +28,11 @@ export const useClasses = (baseClass) => {
     };
 
     const removeClasses = (classes) => {
+        console.log("called2")
         let temp = new Set([...classSet]);
         const classArr = toArray(classes);
+        console.log(temp);
+        console.log(classArr);
         classArr.forEach((className) => {
             temp.delete(className)
         });
