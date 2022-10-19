@@ -1,17 +1,19 @@
-@use 'colors' as *;
+@use 'colors' as c;
 
 $theme-light: (
-        "background": $white,
-        "text-color": $black,
-        "btn-background": $blue-700,
-        "btn-background-hover": $blue-500,
-        "btn-text-color": $white
+        "background": c.$white,
+        "text-color": c.$black,
+        "btn-background": c.$blue-700,
+        "btn-background-hover": c.$blue-500,
+        "btn-text-color": c.$white
 );
 
 $theme-dark: (
-        "background": $dark,
-        "text-color": $white,
-        "btn-background": $blue-700,
-        "btn-background-hover": $blue-500,
-        "btn-text-color": $white
+        "background": c.$dark,
+        "text-color": c.$white,
+        "btn-background": c.$blue-700,
+        "btn-background-hover": c.$blue-500,
+        "btn-text-color": c.$white
 );
+
+@debug $theme-light;

@@ -1,4 +1,5 @@
 @use 'colors';
+@use "theme-maps";
 @use 'helpers' as theme;
 @import "../../src/components/Sidebar/sidebar";
 @import "../../src/components/Filter/filter";

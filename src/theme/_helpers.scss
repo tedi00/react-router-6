@@ -1,8 +1,8 @@
-@use 'theme-maps' as maps;
+@use 'theme-maps';
 
 @function light($string) {
-  @return map-get(maps.$theme-light, $string);
+  @return map-get(theme-maps.$theme-light, $string);
 }
 @function dark($string) {
-  @return map-get(maps.$theme-dark, $string);
+  @return map-get(theme-maps.$theme-dark, $string);
 }
