@@ -5,7 +5,11 @@ $theme-light: (
         "text-color": c.$black,
         "btn-background": c.$blue-700,
         "btn-background-hover": c.$blue-500,
-        "btn-text-color": c.$white
+        "btn-text-color": c.$white,
+        "sidebar-background" : c.$white-7-opacity,
+        "nav-text-color": c.$blue-900,
+        "nav-hover-background": c.$purple-50,
+        "nav-hover-icon": c.$orange-800,
 );
 
 $theme-dark: (
@@ -13,7 +17,9 @@ $theme-dark: (
         "text-color": c.$white,
         "btn-background": c.$blue-700,
         "btn-background-hover": c.$blue-500,
-        "btn-text-color": c.$white
+        "btn-text-color": c.$white,
+        "sidebar-background": c.$black-7-opacity,
+        "nav-text-color": c.$blue-100,
+        "nav-hover-background": c.$purple-300,
+        "nav-hover-icon": c.$orange-400,
 );
-
-@debug $theme-light;

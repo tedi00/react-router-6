@@ -1,5 +1,50 @@
 @use '../../../src/theme/colors';
+@use '../../../src/theme/helpers' as theme;
 
+// Setting theme
+:root {
+  --sidebar-background-color: #{theme.light("sidebar-background")};
+  --nav-text-color: #{theme.light("nav-text-color")};
+  --nav-hover-background: #{theme.light("nav-hover-background")};
+  --nav-hover-icon: #{theme.light("nav-hover-icon")};
+}
+
+.theme-dark {
+  --sidebar-background-color: #{theme.dark("sidebar-background")};
+  --nav-text-color: #{theme.dark("nav-text-color")};
+  --nav-hover-background: #{theme.dark("nav-hover-background")};
+  --nav-hover-icon: #{theme.dark("nav-hover-icon")};
+}
+
+// Layering theme for cascading ease
+@layer theme {
+  .sidebar {
+    background-color: var(--sidebar-background-color);
+    nav, footer {
+      .nav-anchor {
+        &:hover {
+          background-color: var(--nav-hover-background);
+          .nav-icon {
+            color: var(--nav-hover-icon) !important;
+          }
+        }
+        .active {
+          .nav-icon {
+            color: var(--nav-hover-icon) !important;
+          }
+        }
+      }
+      .nav-text, button {
+        color: var(--nav-text-color);
+        &:hover {
+          background-color: var(--nav-hover-background);
+        }
+      }
+    }
+  }
+}
+
+// General styles
 * {
   box-sizing: border-box;
 }
@@ -19,7 +64,6 @@
   border-right: var(--border-right) solid colors.$blue-900;
   transform: translateX(var(--transform)); //default is closed
   transition: transform 220ms ease-in-out;
-  background-color: colors.$white-7-opacity;
   backdrop-filter: blur(5px);
   // Footer padding
   padding-bottom: 60px;
@@ -55,7 +99,6 @@
     padding: 0;
     position: relative;
     background-color: colors.$blue-900;
-    //border-bottom: 1px solid colors.$blue-700;
     &:hover {
       background-color: colors.$blue-700;
     }
@@ -136,21 +179,9 @@
         color: colors.$blue-700;
       }
 
-      &:hover {
-        background-color: colors.$purple-50;
-
-        .nav-icon {
-          color: colors.$orange-800 !important;
-        }
-      }
-
       .active {
         .nav-text {
           font-weight: bold;
-        }
-
-        .nav-icon {
-          color: colors.$orange-800 !important;
         }
       }
     }
@@ -162,15 +193,10 @@
       padding: 1rem;
       pointer-events: none;
       text-decoration: none;
-      color: colors.$blue-900;
       font-size: large;
       background-color: transparent;
       border: none;
       font-family: Arial, sans-serif;
-
-      &:hover {
-        background-color: colors.$purple-50;
-      }
     }
   }
 

@@ -13,8 +13,10 @@
 @layer theme {
   .card {
     box-shadow: 0 0 5px var(--card-box-shadow-color);
+    a {
+      color: var(--card-a-color) !important;
+    }
   }
-  // ISSUE (1)
 }
 
 .card {
@@ -24,8 +26,6 @@
   background-color: transparent;
 
   a {
-    // ISSUE (1): cannot layer - bootstrap override
-    color: var(--card-a-color);
     position: absolute;
     bottom: 1rem;
     left: 1rem;

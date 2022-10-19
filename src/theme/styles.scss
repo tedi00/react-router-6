@@ -1,5 +1,4 @@
 @use 'colors';
-@use "theme-maps";
 @use 'helpers' as theme;
 @import "../../src/components/Sidebar/sidebar";
 @import "../../src/components/Filter/filter";
@@ -31,7 +30,7 @@ btn-text $white
 */
 
 // Layering theme for cascading ease
-@layer theme {
+@layer theme { // Note: !important overrides css outside of layers
   .content {
     background-color: var(--background-color);
     color: var(--text-color);

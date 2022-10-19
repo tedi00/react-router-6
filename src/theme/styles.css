@@ -1,5 +1,37 @@
-/*  Themes  */
-/*  Themes  */
+:root {
+  --sidebar-background-color: rgba(255, 255, 255, 0.7);
+  --nav-text-color: #3149b8;
+  --nav-hover-background: #efe5fd;
+  --nav-hover-icon: #ed6f1e;
+}
+
+.theme-dark {
+  --sidebar-background-color: rgba(0, 0, 0, 0.7);
+  --nav-text-color: #bfe1ff;
+  --nav-hover-background: #9965f4;
+  --nav-hover-icon: #ffa938;
+}
+
+@layer theme {
+  .sidebar {
+    background-color: var(--sidebar-background-color);
+  }
+  .sidebar nav .nav-anchor:hover, .sidebar footer .nav-anchor:hover {
+    background-color: var(--nav-hover-background);
+  }
+  .sidebar nav .nav-anchor:hover .nav-icon, .sidebar footer .nav-anchor:hover .nav-icon {
+    color: var(--nav-hover-icon) !important;
+  }
+  .sidebar nav .nav-anchor .active .nav-icon, .sidebar footer .nav-anchor .active .nav-icon {
+    color: var(--nav-hover-icon) !important;
+  }
+  .sidebar nav .nav-text, .sidebar nav button, .sidebar footer .nav-text, .sidebar footer button {
+    color: var(--nav-text-color);
+  }
+  .sidebar nav .nav-text:hover, .sidebar nav button:hover, .sidebar footer .nav-text:hover, .sidebar footer button:hover {
+    background-color: var(--nav-hover-background);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -19,7 +51,6 @@
   border-right: var(--border-right) solid #3149b8;
   transform: translateX(var(--transform));
   transition: transform 220ms ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(5px);
   padding-bottom: 60px;
 }
@@ -117,17 +148,8 @@
   font-size: 1.5rem;
   color: #367beb;
 }
-.sidebar nav .nav-anchor:hover, .sidebar footer .nav-anchor:hover {
-  background-color: #efe5fd;
-}
-.sidebar nav .nav-anchor:hover .nav-icon, .sidebar footer .nav-anchor:hover .nav-icon {
-  color: #ed6f1e !important;
-}
 .sidebar nav .nav-anchor .active .nav-text, .sidebar footer .nav-anchor .active .nav-text {
   font-weight: bold;
-}
-.sidebar nav .nav-anchor .active .nav-icon, .sidebar footer .nav-anchor .active .nav-icon {
-  color: #ed6f1e !important;
 }
 .sidebar nav .nav-text, .sidebar nav button, .sidebar footer .nav-text, .sidebar footer button {
   display: flex;
@@ -136,14 +158,10 @@
   padding: 1rem;
   pointer-events: none;
   text-decoration: none;
-  color: #3149b8;
   font-size: large;
   background-color: transparent;
   border: none;
   font-family: Arial, sans-serif;
-}
-.sidebar nav .nav-text:hover, .sidebar nav button:hover, .sidebar footer .nav-text:hover, .sidebar footer button:hover {
-  background-color: #efe5fd;
 }
 .sidebar footer {
   position: absolute;
@@ -159,7 +177,6 @@
   align-items: center;
 }
 
-/*  Themes  */
 .filter-class {
   border: 1px solid #367beb;
   border-radius: 0.25rem 0.25rem 0 0;
@@ -180,7 +197,6 @@
   margin-top: 2rem;
 }
 
-/*  Themes  */
 :root {
   --card-box-shadow-color: rgba(190, 190, 190, 0.2);
   --card-a-color: #3569d8;
@@ -194,6 +210,9 @@
   .card {
     box-shadow: 0 0 5px var(--card-box-shadow-color);
   }
+  .card a {
+    color: var(--card-a-color) !important;
+  }
 }
 .card {
   padding: 1rem 1rem 2.5rem 1rem;
@@ -202,13 +221,11 @@
   background-color: transparent;
 }
 .card a {
-  color: var(--card-a-color);
   position: absolute;
   bottom: 1rem;
   left: 1rem;
 }
 
-/*  Themes  */
 .file-input {
   position: relative;
   z-index: 10;
@@ -257,7 +274,6 @@
     width: 3ch;
   }
 }
-/*  Themes  */
 .modal-wrapper {
   position: fixed;
   top: 0;
@@ -277,7 +293,6 @@
   background-color: #FFFFFF;
 }
 
-/*  Themes  */
 .loading-screen {
   background-color: #e4f3ff;
   position: absolute;
@@ -307,7 +322,6 @@
     transform: rotateZ(1turn);
   }
 }
-/*  Themes  */
 .react-switch {
   box-sizing: border-box;
   width: 45px;
@@ -344,7 +358,6 @@
   height: 100%;
 }
 
-/*  Themes  */
 .settings-container {
   max-width: 700px;
   margin: auto;
