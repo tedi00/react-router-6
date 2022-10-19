@@ -1,0 +1,17 @@
+@use 'colors' as *;
+
+$theme-light: (
+        "background": $white,
+        "text-color": $black,
+        "btn-background": $blue-700,
+        "btn-background-hover": $blue-500,
+        "btn-text-color": $white
+);
+
+$theme-dark: (
+        "background": $dark,
+        "text-color": $white,
+        "btn-background": $blue-700,
+        "btn-background-hover": $blue-500,
+        "btn-text-color": $white
+);

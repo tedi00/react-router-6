@@ -1,4 +1,5 @@
 @use 'colors';
+@use 'helpers' as theme;
 @import "../../src/components/Sidebar/sidebar";
 @import "../../src/components/Filter/filter";
 @import "../../src/components/Card/card";
@@ -8,25 +9,17 @@
 @import "../../src/components/Switch/switch";
 @import "../../src/screens/Settings/settings";
 
-// Theming helpers
-@function light($string) {
-  @return map-get(colors.$theme-light, $string)
-}
-@function dark($string) {
-  @return map-get(colors.$theme-dark, $string)
-}
-
 // Setting theme
 :root {
-  --background-color: #{light("background")};
-  --text-color: #{light("text-color")};
-  --btn-background: #{light("btn-background")};
-  --btn-background-hover: #{light("btn-background-hover")};
+  --background-color: #{theme.light("background")};
+  --text-color: #{theme.light("text-color")};
+  --btn-background: #{theme.light("btn-background")};
+  --btn-background-hover: #{theme.light("btn-background-hover")};
 }
 
 .theme-dark {
-  --background-color: #{dark("background")};
-  --text-color: #{dark("text-color")};
+  --background-color: #{theme.dark("background")};
+  --text-color: #{theme.dark("text-color")};
 }
 /*
 bg $white
