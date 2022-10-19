@@ -14,8 +14,8 @@
 }
 
 .theme-dark {
-  --content-background-color: #{colors.$blue-900};
-  --content-text-color: #{colors.$white};
+  --content-background-color: #{colors.$dark};
+  --content-text-color: #{colors.$dark-text};
 }
 
 @layer theme {

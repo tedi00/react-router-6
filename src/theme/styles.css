@@ -178,7 +178,7 @@
 }
 
 :root {
-  --card-box-shadow-color: rgba(0, 0, 0, 0.4);
+  --card-box-shadow-color: rgba(190, 190, 190, 0.2);
   --card-a-color: #3569d8;
 }
 
@@ -357,8 +357,8 @@
 }
 
 .theme-dark {
-  --content-background-color: #3149b8;
-  --content-text-color: #FFFFFF;
+  --content-background-color: #252526;
+  --content-text-color: #f1f1f2;
 }
 
 @layer theme {

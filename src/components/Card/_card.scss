@@ -1,7 +1,7 @@
 @use '../../../src/theme/colors';
 
 :root {
-  --card-box-shadow-color: #{colors.$black-4-opacity};
+  --card-box-shadow-color: #{colors.$dark-box-shadow};
   --card-a-color: #{colors.$blue-800};
 }
 
