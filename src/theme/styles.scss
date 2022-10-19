@@ -8,6 +8,23 @@
 @import "../../src/components/Switch/switch";
 @import "../../src/screens/Settings/settings";
 
+:root {
+  --content-background-color: #{colors.$white};
+  --content-text-color: #{colors.$black}
+}
+
+.theme-dark {
+  --content-background-color: #{colors.$blue-900};
+  --content-text-color: #{colors.$white};
+}
+
+@layer theme {
+  .content {
+    background-color: var(--content-background-color);
+    color: var(--content-text-color);
+  }
+}
+
 html, body {
   margin: 0;
   height: 100%;
@@ -24,8 +41,11 @@ body {
 .wrapper {
   position: relative;
 }
+
 .content {
   padding: 1rem 1rem 1rem calc(60px + 1rem);
+  height: 100%;
+
   h1 {
     margin: 0;
   }
@@ -40,6 +60,7 @@ body {
   background-color: colors.$blue-700;
   color: colors.$white;
   border: none;
+
   &:hover {
     background-color: colors.$blue-500;
     color: colors.$white;

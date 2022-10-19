@@ -1,11 +1,30 @@
 @use '../../../src/theme/colors';
+
+:root {
+  --card-box-shadow-color: #{colors.$black-4-opacity};
+  --card-a-color: #{colors.$blue-800};
+}
+
+.theme-dark {
+  //--card-box-shadow-color: #{colors.$gray-2-opacity};
+  --card-a-color: #{colors.$blue-200};
+}
+
+@layer theme {
+  .card {
+    box-shadow: 0 0 5px var(--card-box-shadow-color);
+  }
+}
+
 .card {
-  box-shadow: 2px 2px 5px colors.$black-4-opacity;
   padding: 1rem 1rem 2.5rem 1rem;
   height: 100%;
   position: relative;
+  background-color: transparent;
+
   a {
-    color: colors.$blue-800;
+    // ISSUE: cannot layer - bootstrap override
+    color: var(--card-a-color);
     position: absolute;
     bottom: 1rem;
     left: 1rem;

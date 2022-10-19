@@ -177,14 +177,28 @@
   margin-top: 2rem;
 }
 
+:root {
+  --card-box-shadow-color: rgba(0, 0, 0, 0.4);
+  --card-a-color: #3569d8;
+}
+
+.theme-dark {
+  --card-a-color: #95cfff;
+}
+
+@layer theme {
+  .card {
+    box-shadow: 0 0 5px var(--card-box-shadow-color);
+  }
+}
 .card {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   padding: 1rem 1rem 2.5rem 1rem;
   height: 100%;
   position: relative;
+  background-color: transparent;
 }
 .card a {
-  color: #3569d8;
+  color: var(--card-a-color);
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -337,6 +351,22 @@
   margin-right: 1rem;
 }
 
+:root {
+  --content-background-color: #FFFFFF;
+  --content-text-color: #000000 ;
+}
+
+.theme-dark {
+  --content-background-color: #3149b8;
+  --content-text-color: #FFFFFF;
+}
+
+@layer theme {
+  .content {
+    background-color: var(--content-background-color);
+    color: var(--content-text-color);
+  }
+}
 html, body {
   margin: 0;
   height: 100%;
@@ -356,6 +386,7 @@ body {
 
 .content {
   padding: 1rem 1rem 1rem calc(60px + 1rem);
+  height: 100%;
 }
 .content h1 {
   margin: 0;

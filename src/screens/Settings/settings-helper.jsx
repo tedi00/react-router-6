@@ -28,7 +28,7 @@ export const SettingsHelper = () => {
         },
         {
             key: "darkMode",
-            text: "Dark Mode",
+            text: "Dark Mode (experimental)",
             checked: settings.darkMode,
             change: () => {colorModeToggle()},
         },
