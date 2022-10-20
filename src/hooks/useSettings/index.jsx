@@ -4,11 +4,8 @@ import {useSessionStorage} from "../useSessionStorage";
 const SettingsContext = createContext(null);
 
 export const SettingsProvider = ({children}) => {
-    const defaultSettings = {
-        keepSidebarOpen: false,
-        darkMode: false,
-    }
-    const [settings, setSettings] = useSessionStorage("settings", defaultSettings);
+
+    const [settings, setSettings] = useSessionStorage("settings", null);
 
     const setData = async (data) => {
         setSettings({
@@ -17,15 +14,10 @@ export const SettingsProvider = ({children}) => {
         });
     };
 
-    const resetData = () => {
-        setSettings(defaultSettings);
-    };
-
     const value = useMemo(
         () => ({
             settings,
-            setData,
-            resetData
+            setData
         }),
         [settings]
     );

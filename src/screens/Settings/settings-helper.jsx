@@ -1,51 +1,34 @@
 import {Switch} from "../../components/Switch";
+import {SettingsList} from "./settings-list";
 import {useSettings} from "../../hooks/useSettings";
 
 export const SettingsHelper = () => {
-    const {settings, setData} = useSettings();
+    const {setData} = useSettings();
+    const settingsList = SettingsList();
 
-    // Change handlers
-    const sidebarToggle = () => {
-        setData({
-            ...settings,
-            keepSidebarOpen: !settings.keepSidebarOpen,
-        });
+    const resetSettings = () => {
+        let settingsObj = {}
+        settingsList.forEach(setting => {
+            settingsObj[setting.key] = setting.defaultValue;
+        })
+        setData(settingsObj);
     }
-    const colorModeToggle = () => {
-        setData({
-            ...settings,
-            darkMode: !settings.darkMode,
-        });
-    }
-
-    // List of settings
-    const settingList = [
-        {
-            key: "keepSidebarOpen",
-            text: "Keep the sidebar open after navigating to another page",
-            checked: settings.keepSidebarOpen,
-            change: () => {sidebarToggle()},
-        },
-        {
-            key: "darkMode",
-            text: "Dark Mode (experimental)",
-            checked: settings.darkMode,
-            change: () => {colorModeToggle()},
-        },
-    ];
 
     // List mapping
-    const switchList = (<>{
-        settingList.map(setting => (
-            <label key={setting.key} className="d-flex flex-wrap align-items-center justify-content-between w-100 my-3">
-                <span className="settings-text">{setting.text}</span>
-                <Switch checked={setting.checked}
-                        handleChange={() => {
-                            setting.change();
-                        }}/>
-            </label>
-        ))
-    }</>);
+    const mapList = (settingList) => {
+        return (<>{
+            settingList.map(setting => (
+                <label key={setting.key}
+                       className="d-flex flex-wrap align-items-center justify-content-between w-100 my-3">
+                    <span className="settings-text">{setting.text}</span>
+                    <Switch checked={setting.checked}
+                            handleChange={() => {
+                                setting.change();
+                            }}/>
+                </label>
+            ))
+        }</>);
+    }
 
-    return {list: switchList};
+    return {mapList, resetSettings};
 }
