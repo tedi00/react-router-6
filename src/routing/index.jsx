@@ -5,7 +5,7 @@ export const Routing = () => {
     const routes = {
         protectedLayout: [
             {path: "/dashboard/profile", name: "Profile", icon: (<i className="bi bi-person"/>)},
-            {path: "/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
+            {path: "/dashboard/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
         ],
         homeLayout: [
             {path: "/", name: "Home", icon: (<i className="bi bi-house"/>)},

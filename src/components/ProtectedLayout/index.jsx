@@ -8,8 +8,8 @@ export const ProtectedLayout = () => {
     const {user} = useAuth();
     const {settings} = useSettings();
     let classList = "wrapper";
-    if(settings.darkMode) {
-        classList += " " + "theme-dark"
+    if(settings?.darkMode) {
+        classList += " theme-dark"
     }
 
     if (!user) {

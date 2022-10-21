@@ -7,7 +7,6 @@ export const Modal = (props) => {
     const [classList, classHandler] = useClasses(classes);
 
     const closeModal = () => {
-        console.log("called");
         classHandler.remove('active');
     }
 

@@ -28,11 +28,8 @@ export const useClasses = (baseClass) => {
     };
 
     const removeClasses = (classes) => {
-        console.log("called2")
         let temp = new Set([...classSet]);
         const classArr = toArray(classes);
-        console.log(temp);
-        console.log(classArr);
         classArr.forEach((className) => {
             temp.delete(className)
         });

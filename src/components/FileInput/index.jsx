@@ -12,7 +12,7 @@ export const FileInput = (props) => {
     }
     return (
         <div className={classes}>
-            {file ? <>file.name</> : <div className="d-flex h-100 align-items-baseline">Browse files<span className="dots">...</span></div>}
+            {file ? <>{file.name}</> : <div className="d-flex h-100 align-items-baseline">Browse files<span className="dots">...</span></div>}
             <input accept="application/pdf, application/msword" onChange={handleChange} type="file"/>
         </div>
     );

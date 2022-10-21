@@ -14,18 +14,18 @@ export const Sidebar = () => {
     }
 
     const {routes} = Routing();
-    const {getRoute} = RoutingHelpers();
+    const {getRouteByPath} = RoutingHelpers();
     const {user, logout} = useAuth();
     const {settings} = useSettings();
     const [classList, classHandler] = useClasses("sidebar");
-    const settingsRoute = getRoute('settings');
+    const settingsRoute = (user ? getRouteByPath('/dashboard/settings') : getRouteByPath('/settings'));
 
     function toggleSidebarOpen() {
         classHandler.has(statuses.open) ? classHandler.remove(statuses.open) : classHandler.add(statuses.open);
     }
 
     function closeSidebar() {
-        if (settings.keepSidebarOpen) return;
+        if (settings['keepSidebarOpen']) return;
         classHandler.reset();
     }
 
