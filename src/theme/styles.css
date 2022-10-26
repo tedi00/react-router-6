@@ -1,5 +1,5 @@
 :root {
-  --sidebar-background-color: rgba(255, 255, 255, 0.7);
+  --sidebar-background-color: rgba(244, 244, 244, 0.7);
   --nav-text-color: #3149b8;
   --nav-hover-background: #efe5fd;
   --nav-hover-icon: #ed6f1e;
@@ -382,7 +382,7 @@
 }
 
 :root {
-  --background-color: #FFFFFF;
+  --background-color: #F4F4F4;
   --text-color: #000000;
   --btn-background: #367beb;
   --btn-background-hover: #379dff;

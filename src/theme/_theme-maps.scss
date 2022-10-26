@@ -1,12 +1,12 @@
 @use 'colors' as c;
 
 $theme-light: (
-        "background": c.$white,
+        "background": c.$white-2,
         "text-color": c.$black,
         "btn-background": c.$blue-700,
         "btn-background-hover": c.$blue-500,
         "btn-text-color": c.$white,
-        "sidebar-background" : c.$white-7-opacity,
+        "sidebar-background" : c.$white-2-7-opacity,
         "nav-text-color": c.$blue-900,
         "nav-hover-background": c.$purple-50,
         "nav-hover-icon": c.$orange-800,
