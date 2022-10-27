@@ -15,8 +15,13 @@ export class CanvasCircleSection {
     }
 
     toRad(deg) {
-        return deg * (Math.PI/180);
+        return deg * (Math.PI / 180);
     }
+
+    toDeg(rad) {
+        return rad * 180 / Math.PI
+    }
+
     toPercentage(deg) {
         return deg * 100 / 360;
     }
@@ -37,12 +42,10 @@ export class CanvasCircleSection {
         let x = mousePosition.x - this.x;
         let y = mousePosition.y - this.y;
 
-        let endAngle = 360 / this.toPercentage(this.angle) + this.rotation;
+        let polarRadius = Math.sqrt(x * x + y * y);
+        let angle = Math.atan2(y, x);
 
-        let polarRadius = Math.sqrt(x * x +y * y);
-        let angle = Math.atan(y / x);
-
-        return (angle >= this.rotation && angle <= endAngle && polarRadius < this.r)
+        return (angle >= this.startingAngle && angle <= this.endAngle && polarRadius < this.r)
     }
 
 }

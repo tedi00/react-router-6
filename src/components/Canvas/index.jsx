@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {DrawCanvas} from "./DrawCanvas";
 import {GridCanvas} from "./GridCanvas";
 import {CanvasCircle} from "./shapes/CanvasCircle";
