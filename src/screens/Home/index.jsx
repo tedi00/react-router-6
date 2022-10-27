@@ -3,6 +3,7 @@ import {Card} from "../../components/Card";
 import {Link} from "react-router-dom";
 import React from "react";
 import {RoutingHelpers} from "../../routing/routing-helpers";
+import {Canvas} from "../../components/Canvas";
 
 export default function Home() {
 
@@ -61,6 +62,14 @@ export default function Home() {
                         </p>
                         {deities ? <Link to={deities.path} key={deities.name}>{deities.name}</Link> : <></>}
                     </Card>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-8 offset-md-2">
+                    <h5>Canvas</h5>
+                    <div className="w-100 border border-dark" style={{height: "400px"}}>
+                        <Canvas/>
+                    </div>
                 </div>
             </div>
         </div>

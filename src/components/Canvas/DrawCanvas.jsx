@@ -24,10 +24,10 @@ export class DrawCanvas {
         this.canvasElement.addEventListener('mouseup', () => {
             this.isPainting = false;
             this.ctx.beginPath();
-        })
+        });
         this.canvasElement.addEventListener('mousemove', (e) => {
             this.#draw(e);
-        })
+        });
     }
     #draw(e) {
         if (!this.isPainting) return;
