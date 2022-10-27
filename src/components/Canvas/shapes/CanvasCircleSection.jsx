@@ -18,14 +18,6 @@ export class CanvasCircleSection {
         return deg * (Math.PI / 180);
     }
 
-    toDeg(rad) {
-        return rad * 180 / Math.PI
-    }
-
-    toPercentage(deg) {
-        return deg * 100 / 360;
-    }
-
     draw(ctx) {
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
