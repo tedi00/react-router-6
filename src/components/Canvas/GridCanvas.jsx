@@ -1,14 +1,16 @@
 export class GridCanvas {
-    constructor(canvas, gridSpacing = 25) {
+    constructor(canvas, gridSpacing = 25, clickFn = () => {}) {
         this.canvasElement = canvas;
         this.ctx = canvas.getContext('2d');
         this.mousePosition = {};
         this.isMouseDown = false;
+        this.isDragged = false;
         this.gridSpacing = gridSpacing;
         this.gridSize = {
             width: canvas.parentElement.offsetWidth,
             height: canvas.parentElement.offsetHeight
         }
+        this.clickFn = clickFn;
         // Elements added should have a unique key
         // and draw(ctx) and intersected(mousePos: {x, y}) methods
         this.elements = [];
@@ -36,6 +38,8 @@ export class GridCanvas {
     #addEventListeners() {
         this.canvasElement.addEventListener('mousedown', () => {
             this.isMouseDown = true;
+            this.isDragged = true;
+            setTimeout(() => {this.isDragged = false}, 250)
         });
         this.canvasElement.addEventListener('mouseup', () => {
             this.isMouseDown = false;
@@ -44,6 +48,16 @@ export class GridCanvas {
         this.canvasElement.addEventListener('mousemove', (e) => {
             this.#dragElement(e);
         });
+        this.canvasElement.addEventListener('click', (e) => {
+            this.getIntersected(e);
+            if(this.isDragged) {
+                this.clickFn(e, this);
+            }
+            this.#releaseFocus();
+        });
+        this.canvasElement.addEventListener('wheel', (e) => {
+            this.#rotateElement(e);
+        })
     }
 
     clearCanvas() {
@@ -94,6 +108,17 @@ export class GridCanvas {
         return anchorPoint;
     }
 
+    getIntersected(e) {
+        this.#getMousePosition(e);
+        for (let i = 0; i < this.elements.length; i++) {
+            if (this.elements[i]['intersected'](this.mousePosition)) {
+                this.focused.key = this.elements[i]['key'];// circles.move(i, 0);
+                this.focused.state = true;
+                break;
+            }
+        }
+    }
+
     #dragElement(e) {
         if (!this.isMouseDown) {
             return;
@@ -109,14 +134,18 @@ export class GridCanvas {
             return;
         }
         //no circle currently focused check if circle is hovered
-        for (let i = 0; i < this.elements.length; i++) {
-            if (this.elements[i]['intersected'](this.mousePosition)) {
-                this.focused.key = this.elements[i]['key'];// circles.move(i, 0);
-                this.focused.state = true;
-                break;
-            }
-        }
+        this.getIntersected(e);
         this.redrawCanvas();
+    }
+    #rotateElement(e) {
+        e.preventDefault();
+        this.#getMousePosition(e);
+
+        const focusedElement = this.elements.find(el => el['key'] === this.focused.key);
+        if(focusedElement.intersected(this.mousePosition) && focusedElement['rotation']) {
+            focusedElement['rotation'] = focusedElement['rotation'] + 22.5;
+            this.redrawCanvas();
+        }
     }
 
     #releaseFocus() {

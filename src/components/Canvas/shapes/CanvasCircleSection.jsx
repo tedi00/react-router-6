@@ -1,9 +1,9 @@
 export class CanvasCircleSection {
     constructor(x, y, r, fill, stroke, angle, key, rotation = 0) {
+        this.rotation = rotation;
+        this.angle = angle;
         this.startingAngle = this.toRad(rotation);
         this.endAngle = this.toRad(angle) + this.toRad(rotation);
-        this.angle = angle;
-        this.rotation = rotation;
 
         this.x = x;
         this.y = y;
@@ -14,11 +14,26 @@ export class CanvasCircleSection {
         this.key = key;
     }
 
+    updateCoordinates() {
+        this.startingAngle = this.toRad(this.rotation);
+        while(this.startingAngle > 2 * Math.PI) {
+            this.startingAngle = this.startingAngle - 2 * Math.PI;
+        }
+        this.endAngle = this.toRad(this.angle) + this.toRad(this.rotation);
+        while(this.endAngle > 2 * Math.PI) {
+            this.endAngle = this.endAngle - 2 * Math.PI;
+        }
+        while(this.endAngle < this.startingAngle) {
+            this.startingAngle = this.startingAngle - 2 * Math.PI;
+        }
+    }
+
     toRad(deg) {
         return deg * (Math.PI / 180);
     }
 
     draw(ctx) {
+        this.updateCoordinates();
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
         ctx.arc(this.x, this.y, this.r, this.startingAngle, this.endAngle);
@@ -37,7 +52,13 @@ export class CanvasCircleSection {
         let polarRadius = Math.sqrt(x * x + y * y);
         let angle = Math.atan2(y, x);
 
-        return (angle >= this.startingAngle && angle <= this.endAngle && polarRadius < this.r)
+        let angle2 = (angle + (2 * Math.PI));
+        while(angle2 > 2 * Math.PI) {
+            angle2 = angle2 - 2 * Math.PI;
+        }
+
+        let angleCondition = ((angle >= this.startingAngle && angle <= this.endAngle) || (angle2 >= this.startingAngle && angle2 <= this.endAngle))
+        return (angleCondition && polarRadius < this.r);
     }
 
 }

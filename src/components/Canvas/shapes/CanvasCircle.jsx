@@ -23,10 +23,9 @@ export class CanvasCircle {
     }
 
     intersected(mousePosition) {
+        let x = mousePosition.x - this.x;
+        let y = mousePosition.y - this.y;
 
-        let areaX = mousePosition.x - this.x;
-        let areaY = mousePosition.y - this.y;
-
-        return (areaX * areaX + areaY * areaY <= this.r * this.r);
+        return (x * x + y * y <= this.r * this.r);
     }
 }
