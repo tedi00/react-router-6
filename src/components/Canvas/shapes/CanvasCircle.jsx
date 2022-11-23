@@ -13,6 +13,8 @@ export class CanvasCircle {
     }
 
     draw(ctx) {
+        const ctxFill = ctx.fillStyle;
+        const ctxStroke = ctx.strokeStyle;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, this.startingAngle, this.endAngle);
         ctx.fillStyle = this.fill;
@@ -20,6 +22,8 @@ export class CanvasCircle {
         ctx.fill();
         ctx.strokeStyle = this.stroke;
         ctx.stroke();
+        ctx.fillStyle = ctxFill;
+        ctx.strokeStyle = ctxStroke;
     }
 
     intersected(mousePosition) {

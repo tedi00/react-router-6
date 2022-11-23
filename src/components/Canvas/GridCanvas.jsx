@@ -65,6 +65,7 @@ export class GridCanvas {
     }
 
     #drawGrid() {
+        console.log(this.ctx.fillStyle);
         this.ctx.lineWidth = 1;
         for (let x = 0; x <= this.gridSize.width; x += this.gridSpacing) {
             this.ctx.moveTo(0.5 + x, 0);
@@ -75,7 +76,7 @@ export class GridCanvas {
             this.ctx.moveTo(0, 0.5 + x);
             this.ctx.lineTo(this.gridSize.width, 0.5 + x);
         }
-        this.ctx.strokeStyle = "black";
+        // this.ctx.strokeStyle = "black";
         this.ctx.stroke();
     }
 
@@ -133,7 +134,7 @@ export class GridCanvas {
             this.redrawCanvas();
             return;
         }
-        //no circle currently focused check if circle is hovered
+        //no circle currently focused check if  circle is hovered
         this.getIntersected(e);
         this.redrawCanvas();
     }
@@ -173,6 +174,7 @@ export class GridCanvas {
     }
 
     redrawCanvas() {
+        console.log(this.ctx.fillStyle);
         this.clearCanvas();
         this.#drawElements();
         this.#drawGrid();

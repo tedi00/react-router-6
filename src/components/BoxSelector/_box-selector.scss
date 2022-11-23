@@ -1,0 +1,43 @@
+.box-element {
+  border: 2px solid royalblue;
+  aspect-ratio: 1/1;
+  input[type="checkbox"] {
+    display: block;
+    appearance: none;
+    height: 1em;
+    width: 1em;
+    border: 1px solid gray;
+    border-radius: 0;
+    position: relative;
+    &::before {
+      content: "✔";
+      position: absolute;
+      font-size: .8em;
+      right: -1px;
+      top: -0.3em;
+      visibility: hidden;
+    }
+    &:checked::before {
+      visibility: visible;
+    }
+  }
+  &:not([data-active="true"]) input[type="checkbox"] {
+    visibility: hidden;
+  }
+  &[data-active="true"] {
+    &:hover {
+      input[type="checkbox"] {
+        visibility: initial;
+      }
+    }
+  }
+}
+
+.box-container {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  width: 100%;
+}

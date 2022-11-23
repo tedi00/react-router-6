@@ -1,0 +1,85 @@
+@layer react-dropdown {
+  .react-dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 0.625rem;
+    font-family: Verdana, Arial, sans-serif;
+    padding: 0.5em 2.5em 0.5em 0.5em;
+    min-width: 15em;
+    cursor: pointer;
+    user-select: none;
+    border: 0.2em solid #367beb;
+    border-radius: 0.4em;
+    box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
+    outline: none;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #ed6f1e;
+    }
+    &::after {
+      content: "▼"; /* U+25BC; make sure to set a charset meta tag */
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 3em;
+      padding-top: 0.5em;
+      border-left: 0.2em solid #367beb;
+      border-radius: 0 0.1em 0.1em 0;
+      background-color: #367beb;
+      color: #fff;
+      text-align: center;
+    }
+    .optList {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      list-style: none;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box;
+      min-width: 100%;
+      max-height: 20em;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border: 0.2em solid #367beb;
+      border-top-width: 0.1em;
+      border-radius: 0 0 0.4em 0.4em;
+      box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
+      background: #f0f0f0;
+      transform: translateY(1px);
+      &.hidden {
+        max-height: 0;
+        visibility: hidden;
+      }
+    }
+    .value {
+      display: inline-block;
+      font-size: .75rem;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      vertical-align: top;
+    }
+    .option {
+      padding: 0.2em 0.3em;
+      font-size: .75rem;
+    }
+    .highlight {
+      background: #d7d7d7;
+    }
+    select {
+      visibility: hidden;
+      max-height: 0;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

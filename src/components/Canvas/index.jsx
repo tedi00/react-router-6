@@ -4,9 +4,11 @@ import {GridCanvas} from "./GridCanvas";
 import {CanvasCircle} from "./shapes/CanvasCircle";
 import {CanvasCircleSection} from "./shapes/CanvasCircleSection";
 import {CanvasRectangle} from "./shapes/CanvasRectangle";
+import {useSettings} from "../../hooks/useSettings";
 
-
+/* Not currently in use */
 export const Canvas = () => {
+    const {settings} = useSettings();
     const canvasRef = useRef(null);
     const [canvas, setCanvas] = useState(null);
     let c1 = new CanvasCircle(50, 50, 50, "red", "black", 0);
@@ -21,6 +23,11 @@ export const Canvas = () => {
     }, []);
     useEffect(() => {
         if (canvas) {
+            if(settings.darkMode) {
+                canvas.ctx.fillStyle = 'gray';
+                canvas.ctx.strokeStyle = 'gray';
+                canvas.redrawCanvas();
+            }
             canvas.setElements(circles);
         }
     }, [canvas])

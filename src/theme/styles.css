@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --sidebar-background-color: rgba(244, 244, 244, 0.7);
   --nav-text-color: #3149b8;
@@ -382,6 +383,245 @@
 }
 
 :root {
+  --carousel-transform-size: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* html,
+body, #root, .app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.carousel-container {
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 2rem 2rem 2rem;
+  position: relative;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  background-color: royalblue;
+  z-index: 100;
+}
+
+.arrow-left::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.arrow-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  background-color: royalblue;
+  z-index: 100;
+}
+
+.arrow-right::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  /* // margin-right: 50px; */
+  border: 2px solid red;
+  display: inline-block;
+  transition: transform 0.75s ease;
+  transform: translateX(var(--carousel-transform-size));
+  text-align: center;
+  white-space: break-spaces;
+  overflow: hidden;
+}
+
+.dots {
+  height: 0.5rem;
+  width: 3rem;
+  background: black;
+}
+
+.dot-container {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  padding: 0 2rem;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.grid-container {
+  height: 100%;
+  display: flex;
+}
+
+.grid-container > * {
+  width: 50%;
+}
+
+.box-element {
+  border: 2px solid royalblue;
+  aspect-ratio: 1/1;
+}
+.box-element input[type=checkbox] {
+  display: block;
+  appearance: none;
+  height: 1em;
+  width: 1em;
+  border: 1px solid gray;
+  border-radius: 0;
+  position: relative;
+}
+.box-element input[type=checkbox]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 0.8em;
+  right: -1px;
+  top: -0.3em;
+  visibility: hidden;
+}
+.box-element input[type=checkbox]:checked::before {
+  visibility: visible;
+}
+.box-element:not([data-active=true]) input[type=checkbox] {
+  visibility: hidden;
+}
+.box-element[data-active=true]:hover input[type=checkbox] {
+  visibility: initial;
+}
+
+.box-container {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  width: 100%;
+}
+
+@layer react-dropdown {
+  .react-dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 0.625rem;
+    font-family: Verdana, Arial, sans-serif;
+    padding: 0.5em 2.5em 0.5em 0.5em;
+    min-width: 15em;
+    cursor: pointer;
+    user-select: none;
+    border: 0.2em solid #367beb;
+    border-radius: 0.4em;
+    box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
+    outline: none;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
+  }
+  .react-dropdown:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #ed6f1e;
+  }
+  .react-dropdown::after {
+    content: "▼"; /* U+25BC; make sure to set a charset meta tag */
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 3em;
+    padding-top: 0.5em;
+    border-left: 0.2em solid #367beb;
+    border-radius: 0 0.1em 0.1em 0;
+    background-color: #367beb;
+    color: #fff;
+    text-align: center;
+  }
+  .react-dropdown .optList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    min-width: 100%;
+    max-height: 20em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 0.2em solid #367beb;
+    border-top-width: 0.1em;
+    border-radius: 0 0 0.4em 0.4em;
+    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
+    background: #f0f0f0;
+    transform: translateY(1px);
+  }
+  .react-dropdown .optList.hidden {
+    max-height: 0;
+    visibility: hidden;
+  }
+  .react-dropdown .value {
+    display: inline-block;
+    font-size: 0.75rem;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
+  .react-dropdown .option {
+    padding: 0.2em 0.3em;
+    font-size: 0.75rem;
+  }
+  .react-dropdown .highlight {
+    background: #d7d7d7;
+  }
+  .react-dropdown select {
+    visibility: hidden;
+    max-height: 0;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+  }
+}
+:root {
   --background-color: #F4F4F4;
   --text-color: #000000;
   --btn-background: #367beb;
@@ -425,7 +665,7 @@ body {
 
 .content {
   padding: 1rem 1rem 1rem calc(60px + 1rem);
-  height: 100%;
+  min-height: 100%;
 }
 .content h1 {
   margin: 0;

@@ -33,6 +33,8 @@ export class CanvasCircleSection {
     }
 
     draw(ctx) {
+        const ctxFill = ctx.fillStyle;
+        const ctxStroke = ctx.strokeStyle;
         this.updateCoordinates();
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
@@ -43,6 +45,8 @@ export class CanvasCircleSection {
         ctx.fill();
         ctx.strokeStyle = this.stroke;
         ctx.stroke();
+        ctx.fillStyle = ctxFill;
+        ctx.strokeStyle = ctxStroke;
     }
 
     intersected(mousePosition) {

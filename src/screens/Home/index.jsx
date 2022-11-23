@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 import React from "react";
 import {RoutingHelpers} from "../../routing/routing-helpers";
 import {Canvas} from "../../components/Canvas";
+import {Carousel} from "../../components/Carousel";
+import {BoxSelector} from "../../components/BoxSelector";
+import {BoxElement} from "../../components/BoxSelector/BoxElement";
+import {Dropdown} from "../../components/Dropdown";
 
 export default function Home() {
 
@@ -65,11 +69,14 @@ export default function Home() {
                 </div>
             </div>
             <div className="row">
-                <div className="col-12 col-md-8 offset-md-2">
-                    <h5>Canvas</h5>
-                    <div className="w-100 border border-dark" style={{height: "400px"}}>
-                        <Canvas/>
-                    </div>
+                <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+                    <Dropdown name='fruit' options={[
+                        {name: 'Cherry', value: 'cherry'},
+                        {name: 'Lemon', value: 'lemon', defaultValue: true},
+                        {name: 'Banana', value: 'banana'},
+                        {name: 'Strawberry', value: 'strawberry'},
+                        {name: 'Apple', value: 'apple'}
+                    ]} onChange={(e) => {console.log(e.target.value)}} style={{width: '20em'}} />
                 </div>
             </div>
         </div>

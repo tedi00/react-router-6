@@ -24,12 +24,16 @@ export class CanvasRectangle {
     }
 
     draw(ctx) {
+        const ctxFill = ctx.fillStyle;
+        const ctxStroke = ctx.strokeStyle;
         this.updateCoordinates();
         ctx.fillStyle = this.fill;
         ctx.lineWidth = 2;
         ctx.strokeStyle = this.stroke;
         ctx.fillRect(this.startX, this.startY, this.width, this.height);
         ctx.strokeRect(this.startX, this.startY, this.width, this.height);
+        ctx.fillStyle = ctxFill;
+        ctx.strokeStyle = ctxStroke;
     }
 
     intersected(mousePosition) {
