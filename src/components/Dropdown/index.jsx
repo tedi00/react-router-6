@@ -23,19 +23,22 @@ export const Dropdown = ({name, options, style, ...props}) => {
         setIsActive(false);
     }
 
-    const [enableClick, setEnableClick] = useState(true);
-    const onDropdownFocus = () => {
-        setIsActive(true); // Open dropdown
-        setEnableClick(false)
+    let isMouseDown = false;
+    const onDropdownMouseDown = () => {
+        isMouseDown = true;
     }
-    const onDropdownBlur = () => {
-        setIsActive(false); // Close dropdown
+    const onDropdownMouseUp = () => {
+        isMouseDown = false;
+    }
+    const onDropdownFocus = (e) => {
+        if (isMouseDown) return;
+        setIsActive(true);
+    }
+    const onDropdownBlur = (e) => {
+        setIsActive(false);
     }
     const onDropdownClick = () => {
-        if (enableClick) {
-            setIsActive(!isActive)
-        }
-        setEnableClick(true);
+        setIsActive(!isActive);
     }
     const onDropdownKeyDown = (e) => {
         if (!e.key) return;
@@ -46,15 +49,16 @@ export const Dropdown = ({name, options, style, ...props}) => {
             if (isActive) {
                 setSelectedIndex(highlightedIndex);
             }
-            setEnableClick(true);
             setIsActive(!isActive);
         }
         if (e.key === 'ArrowUp') {
             if (highlightedIndex === 0) return;
+            moveScrollbarToOption(highlightedIndex - 1);
             setHighlightedIndex(highlightedIndex - 1);
         }
         if (e.key === 'ArrowDown') {
             if (highlightedIndex === options.length - 1) return;
+            moveScrollbarToOption(highlightedIndex + 1);
             setHighlightedIndex(highlightedIndex + 1);
         }
     }
@@ -66,9 +70,18 @@ export const Dropdown = ({name, options, style, ...props}) => {
         return options[selectedIndex].name;
     }
 
+    const moveScrollbarToOption = (index) => {
+        const element = optList.current['children'][index];
+        const parentHeight = optList.current['offsetHeight'];
+        const optionHeight = element.offsetHeight;
+        const topSpacing = Math.min(Math.trunc(parentHeight / optionHeight / 2 - 1), 3);
+        const scrollOffset = element.offsetTop - (element.offsetHeight * topSpacing);
+        optList.current['scrollTop'] = scrollOffset;
+    }
+
     useEffect(() => {
         selectElement.current['selectedIndex'] = selectedIndex;
-        const event = new Event('change', { bubbles: true });
+        const event = new Event('change', {bubbles: true});
         selectElement.current['dispatchEvent'](event);
     }, [selectedIndex])
     const select = useMemo(() => {
@@ -82,9 +95,11 @@ export const Dropdown = ({name, options, style, ...props}) => {
 
     return (
         <div onKeyDown={onDropdownKeyDown}
+             onMouseUp={onDropdownMouseUp}
              onFocus={onDropdownFocus}
              onBlur={onDropdownBlur}
              onClick={onDropdownClick}
+             onMouseDown={onDropdownMouseDown}
              className={'react-dropdown' + (isActive ? ' active' : '')}
              role="listbox" tabIndex={0} data-value={getSelectedOptionValue()}
              style={style}>

@@ -75,7 +75,15 @@ export default function Home() {
                         {name: 'Lemon', value: 'lemon', defaultValue: true},
                         {name: 'Banana', value: 'banana'},
                         {name: 'Strawberry', value: 'strawberry'},
-                        {name: 'Apple', value: 'apple'}
+                        {name: 'Apple', value: 'apple'},
+                        {name: 'Apricot', value: 'apricot'},
+                        {name: 'Mango', value: 'mango'},
+                        {name: 'Orange', value: 'orange'},
+                        {name: 'Grape', value: 'grape'},
+                        {name: 'Blueberry', value: 'blueberry'},
+                        {name: 'Tomato', value: 'tomato'},
+                        {name: 'Kiwi', value: 'kiwi'},
+                        {name: 'Tangerine', value: 'tangerine'}
                     ]} onChange={(e) => {console.log(e.target.value)}} style={{width: '20em'}} />
                 </div>
             </div>

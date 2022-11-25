@@ -11,6 +11,7 @@ export const DropdownOptions = ({options, highlightedIndex, selectedIndex, event
                         onClick={(e) => {
                             onOptionClick(e);
                         }}
+                        style={{'--index': i}}
                         className={'option' + (i === highlightedIndex ? ' highlight' : '')}
                         role="option">{el.name}</li>)
         })}

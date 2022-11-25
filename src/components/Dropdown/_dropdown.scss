@@ -15,25 +15,50 @@
     box-sizing: border-box;
     background: #f0f0f0;
     background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
+    z-index: 10;
     &:focus-visible {
       outline: none;
       box-shadow: 0 0 0 2px #ed6f1e;
     }
-    &::after {
-      content: "▼"; /* U+25BC; make sure to set a charset meta tag */
+    &::before {
+      content: "";
       position: absolute;
-      z-index: 1;
+      z-index: 10;
       top: 0;
       right: 0;
       box-sizing: border-box;
       height: 100%;
       width: 3em;
-      padding-top: 0.5em;
+      padding-top: 0.6em;
       border-left: 0.2em solid #367beb;
       border-radius: 0 0.1em 0.1em 0;
       background-color: #367beb;
-      color: #fff;
-      text-align: center;
+    }
+    &::after {
+      content: ""/*"▼"*/; /* U+25BC; make sure to set a charset meta tag */
+      position: absolute;
+      z-index: 10;
+      //top: 0;
+      //right: -1px;
+      box-sizing: border-box;
+      //height: 100%;
+      //width: 3em;
+      //border-radius: 50%;
+      //background-color: transparent;
+      //color: #fff;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
+      //transition: transform 330ms ease;
+      width: .6rem;
+      height: .6rem;
+      border-radius: initial;
+      background: white;
+      top: 50%;
+      right: 0;
+      transform: translate(-90%, -50%);
+      transition: clip-path 330ms ease;
+      clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
     }
     .optList {
       position: absolute;
@@ -52,7 +77,9 @@
       border-radius: 0 0 0.4em 0.4em;
       box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
       background: #f0f0f0;
+      transition: transform 330ms ease, opacity 330ms ease;
       transform: translateY(1px);
+      z-index: 5;
       &.hidden {
         max-height: 0;
         visibility: hidden;
@@ -70,9 +97,23 @@
     .option {
       padding: 0.2em 0.3em;
       font-size: .75rem;
+      opacity: 0;
+      animation-delay: calc(40ms * var(--index)) !important;
+    }
+    &.active {
+      &::after {
+        //transform: rotateX(180deg);
+        clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+      }
+      .option {
+        animation: drop 220ms ease forwards;
+      }
     }
     .highlight {
-      background: #d7d7d7;
+      //background: #d7d7d7;
+      background-color: #367beb;
+      color: white;
+      font-weight: bold;
     }
     select {
       visibility: hidden;
@@ -81,5 +122,16 @@
       padding: 0;
       margin: 0;
     }
+  }
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
