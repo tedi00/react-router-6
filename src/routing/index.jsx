@@ -9,9 +9,7 @@ export const Routing = () => {
         ],
         homeLayout: [
             {path: "/", name: "Home", icon: (<i className="bi bi-house"/>)},
-            {path: "/maps", name: "Maps", icon: (<i className="bi bi-map"/>)},
-            {path: "/deities", name: "Deities", icon: (<i className="bi bi-stars"/>)},
-            {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"/>)},
+            // {path: "/login", name: "Login", icon: (<i className="bi bi-box-arrow-in-left"/>)},
             {path: "/settings", name: "Settings", icon: (<i className="bi bi-gear"/>)}
         ]
     }

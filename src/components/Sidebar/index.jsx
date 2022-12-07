@@ -72,16 +72,16 @@ export const Sidebar = () => {
     let currentRoutes = user ? protectedRoutes : homeRoutes;
 
     return (
-        <aside className={classList}>
+        <nav className={classList}>
 
-            <button onClick={toggleSidebarOpen} className="toggle">
-                <p>Navigate</p>
-                <span aria-label={'toggle'}/>
-            </button>
-            <nav>
+            {/*<button onClick={toggleSidebarOpen} className="toggle">*/}
+            {/*    <p>Navigate</p>*/}
+            {/*    <span aria-label={'toggle'}/>*/}
+            {/*</button>*/}
+            <div>
                 {currentRoutes}
-            </nav>
-            <footer>
+            </div>
+            <div>
                 <NavLink
                     to={settingsRoute.path}
                     text={settingsRoute.name}
@@ -89,7 +89,7 @@ export const Sidebar = () => {
                     onClick={closeSidebar}
                     key={settingsRoute.name}
                 />
-            </footer>
-        </aside>
+            </div>
+        </nav>
     );
 };

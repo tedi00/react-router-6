@@ -5,10 +5,7 @@ import './theme/styles.css';
 import {HomeLayout} from "./components/HomeLayout";
 import {ProtectedLayout} from "./components/ProtectedLayout";
 import Home from './screens/Home'
-import {Login} from "./screens/Login";
 import {Profile} from "./screens/Profile";
-import {Maps} from "./screens/Maps";
-import {Deities} from "./screens/Deities";
 import {Settings} from "./screens/Settings";
 import React from "react";
 
@@ -17,9 +14,6 @@ function App() {
         <Routes>
             <Route element={<HomeLayout/>}>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/maps" element={<Maps/>}/>
-                <Route path="/deities" element={<Deities/>}/>
-                <Route path="/login" element={<Login/>}/>
                 <Route path="/settings" element={<Settings/>}/>
             </Route>
 

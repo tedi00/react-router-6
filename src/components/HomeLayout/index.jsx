@@ -10,7 +10,7 @@ export const HomeLayout = () => {
     const {settings} = useSettings();
     let classList = "wrapper";
     if(settings.darkMode) {
-        classList += " " + "theme-dark";
+        classList += ` theme-dark`;
     }
 
     if (user) {

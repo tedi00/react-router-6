@@ -13,171 +13,19 @@
   --nav-hover-icon: #ffa938;
 }
 
-@layer theme {
-  .sidebar {
-    background-color: var(--sidebar-background-color);
-  }
-  .sidebar nav .nav-anchor:hover, .sidebar footer .nav-anchor:hover {
-    background-color: var(--nav-hover-background);
-  }
-  .sidebar nav .nav-anchor:hover .nav-icon, .sidebar footer .nav-anchor:hover .nav-icon {
-    color: var(--nav-hover-icon) !important;
-  }
-  .sidebar nav .nav-anchor .active .nav-icon, .sidebar footer .nav-anchor .active .nav-icon {
-    color: var(--nav-hover-icon) !important;
-  }
-  .sidebar nav .nav-text, .sidebar nav button, .sidebar footer .nav-text, .sidebar footer button {
-    color: var(--nav-text-color);
-  }
-  .sidebar nav .nav-text:hover, .sidebar nav button:hover, .sidebar footer .nav-text:hover, .sidebar footer button:hover {
-    background-color: var(--nav-hover-background);
-  }
-}
+@layer theme {}
 * {
   box-sizing: border-box;
 }
 
 .sidebar {
-  --border-right: 1px;
-  --width: 300px;
-  --closed-width: 60px;
-  --transform: calc(var(--width) * -1 + var(--closed-width) + var(--border-right));
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: var(--width);
-  min-width: 150px;
-  height: 100vh;
-  border-right: var(--border-right) solid #3149b8;
-  transform: translateX(var(--transform));
-  transition: transform 220ms ease-in-out;
-  backdrop-filter: blur(5px);
-  padding-bottom: 60px;
-}
-.sidebar.open {
-  transform: translateX(0);
-  width: min(var(--width), 90%);
-}
-.sidebar.open .toggle span {
-  transform: rotate(45deg);
-}
-.sidebar.open .toggle span::before, .sidebar.open .toggle span::after {
-  transform: rotate(90deg);
-}
-@media screen and (max-width: 240px) {
-  .sidebar.open .toggle span {
-    display: none;
-  }
-}
-.sidebar.open nav a, .sidebar.open nav button, .sidebar.open footer a, .sidebar.open footer button {
-  pointer-events: auto;
-}
-.sidebar .toggle {
-  width: 100%;
-  height: var(--closed-width);
-  border: none;
-  padding: 0;
-  position: relative;
-  background-color: #3149b8;
-}
-.sidebar .toggle:hover {
-  background-color: #367beb;
-}
-.sidebar .toggle p {
-  font-size: 2rem;
-  text-align: left;
-  margin: 0 0 0 1rem;
-  color: #FFFFFF;
-}
-.sidebar .toggle span {
-  --short: calc(var(--closed-width) * 1 / 10);
-  --long: calc(var(--closed-width) * 8 / 10);
-  position: absolute;
-  right: var(--short);
-  top: calc(50% - 2.5px);
-  display: block;
-  width: var(--long);
-  height: 5px;
-  background-color: #FFFFFF;
-  border-radius: var(--short);
-  transition: transform 220ms ease-in-out;
-  --distance1: calc(var(--closed-width) / 5);
-  --distance2: calc(var(--distance1) * -1);
-}
-.sidebar .toggle span::before, .sidebar .toggle span::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: var(--long);
-  height: 5px;
-  transition: transform 220ms ease-in-out;
-  background-color: #FFFFFF;
-  border-radius: var(--short);
-}
-.sidebar .toggle span::before {
-  transform: translateY(var(--distance1));
-}
-.sidebar .toggle span::after {
-  transform: translateY(var(--distance2));
-}
-.sidebar nav, .sidebar footer {
   display: flex;
-  flex-direction: column;
-  height: calc(100% - 60px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.sidebar nav .nav-anchor a, .sidebar footer .nav-anchor a {
-  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem 2rem;
   flex-wrap: wrap;
-  text-decoration: none;
+  background-color: var(--background-color);
 }
-.sidebar nav .nav-anchor .nav-text, .sidebar footer .nav-anchor .nav-text {
-  overflow: hidden;
-}
-.sidebar nav .nav-anchor .nav-text:not(.w-100), .sidebar footer .nav-anchor .nav-text:not(.w-100) {
-  width: calc(100% - var(--closed-width));
-}
-.sidebar nav .nav-anchor .nav-text:not(.w-100) + .nav-icon, .sidebar footer .nav-anchor .nav-text:not(.w-100) + .nav-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--closed-width);
-  font-size: 1.5rem;
-  color: #367beb;
-}
-.sidebar nav .nav-anchor .active .nav-text, .sidebar footer .nav-anchor .active .nav-text {
-  font-weight: bold;
-}
-.sidebar nav .nav-text, .sidebar nav button, .sidebar footer .nav-text, .sidebar footer button {
-  display: flex;
-  height: var(--closed-width);
-  align-items: center;
-  padding: 1rem;
-  pointer-events: none;
-  text-decoration: none;
-  font-size: large;
-  background-color: transparent;
-  border: none;
-  font-family: Arial, sans-serif;
-}
-.sidebar footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  max-height: 60px;
-  color: #7f7f7f;
-}
-.sidebar footer label {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .filter-class {
   border: 1px solid #367beb;
   border-radius: 0.25rem 0.25rem 0 0;
