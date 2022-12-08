@@ -1,0 +1,48 @@
+
+.card {
+  min-width: max(30vw, 250px);
+  width: min(50vw, 700px);
+  border: 1px solid black;
+  min-height: 50vh;
+  padding: 1rem;
+  h4 {
+    margin-bottom: 2rem;
+  }
+  .card-option {
+    border: 1px solid gray;
+    &.selected {
+      border-color: red;
+    }
+  }
+}
+
+.card {
+  animation: card-slide 2s ease forwards;
+}
+
+@keyframes card-slide {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  43.75% {
+    transform: translate(-100vw, 0);
+    opacity: 1;
+  }
+  47.5% {
+    transform: translate(-100vw, 0);
+    opacity: 0;
+  }
+  51.25% {
+    transform: translate(100vw, 0);
+    opacity: 0;
+  }
+  55% {
+    transform: translate(100vw, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
