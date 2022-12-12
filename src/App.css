@@ -8,3 +8,10 @@ html, body {
 }
 
 
+body {
+  background-image: url("/src/media/background.jpg");
+  background-position: center;
+  background-blend-mode: multiply;
+  background-color: royalblue;
+  background-repeat: no-repeat;
+}

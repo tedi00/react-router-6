@@ -26,6 +26,16 @@ export default function Home() {
                     score: 2,
                     image: undefined
                 },
+                {
+                    text: 'Ans3',
+                    score: 3,
+                    image: undefined
+                },
+                {
+                    text: 'Ans4',
+                    score: 4,
+                    image: undefined
+                },
             ]
         },
         {
@@ -57,26 +67,65 @@ export default function Home() {
     }
 
     const goToNextCard = () => {
-        if(!currentPageScore) {
+        if (!currentPageScore) {
             return;
         }
         recordScore(currentPageScore);
-        if (cardStep < questions.length-1) {
-            setCardStep(cardStep + 1);
+        if (cardStep < questions.length - 1) {
+            doCardTransition();
+            setTimeout(() => {
+                setCardStep(cardStep + 1);
+            }, 1000)
+        } else {
+            // TODO: redirect
         }
-        setCurrentPageScore(undefined);
+        setTimeout(() => {
+            setCurrentPageScore(undefined);
+        }, 1000);
+
         card.current['querySelectorAll']('span').forEach(item => item.className = 'card-option');
+    }
+    const goToPreviousCard = () => {
+        console.log(scores);
+        let scoresCopy = [...scores];
+        scoresCopy.pop();
+        const newArr = [...scoresCopy];
+        if (cardStep <= 0) {
+            return;
+        }
+        doCardTransition();
+        setTimeout(() => {
+            setCardStep(cardStep - 1);
+            setScores([...newArr]);
+        }, 1000);
+    }
+    const doCardTransition = () => {
+        card.current['classList'].add('animating');
+        setTimeout(() => {
+            card.current['className'] = 'react-wrapper'
+        }, 2000);
     }
 
 
     return (
         <div ref={card} className='react-wrapper'>
-            <Card  title='Do thing here'>
+            <Card>
                 {getCardBody()}
-                <button onClick={() => {
-                    goToNextCard();
-                }}>Next
-                </button>
+                <div className="row">
+                    <div className="col-12 text-center">
+                        {cardStep > 0 &&
+                        <button className='mt-3 me-3' onClick={() => {
+                            goToPreviousCard();
+                        }}>Back
+                        </button>
+                        }
+                        <button className='mt-3' onClick={() => {
+                            goToNextCard();
+                        }}>Next
+                        </button>
+
+                    </div>
+                </div>
             </Card>
         </div>
     );

@@ -4,20 +4,42 @@
   width: min(50vw, 700px);
   border: 1px solid black;
   min-height: 50vh;
-  padding: 1rem;
-  h4 {
+  padding: 3rem 1rem;
+  background: #fffc;
+  .h4 {
+    text-align: center;
     margin-bottom: 2rem;
   }
   .card-option {
-    border: 1px solid gray;
+    border: 2px solid gray;
+    padding: .5rem 1rem;
+    width: 100%;
+    display: block;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
     &.selected {
-      border-color: red;
+      border-color: #ff115f;
+    }
+  }
+  button {
+    background: #ff115f;
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 1.5rem;
+    color: white;
+    font-weight: bold;
+    &:active, &:focus {
+      outline: 2px solid royalblue;
     }
   }
 }
 
-.card {
-  animation: card-slide 2s ease forwards;
+.animating {
+  .card {
+    animation: card-slide 2s ease forwards;
+  }
 }
 
 @keyframes card-slide {
@@ -25,20 +47,20 @@
     transform: translate(0, 0);
     opacity: 1;
   }
-  43.75% {
-    transform: translate(-100vw, 0);
+  47.5% {
+    transform: translate(-90vw, 0);
     opacity: 1;
   }
-  47.5% {
-    transform: translate(-100vw, 0);
+  49.1% {
+    transform: translate(-90vw, 0);
     opacity: 0;
   }
-  51.25% {
-    transform: translate(100vw, 0);
+  50.7% {
+    transform: translate(90vw, 0);
     opacity: 0;
   }
-  55% {
-    transform: translate(100vw, 0);
+  52.5% {
+    transform: translate(90vw, 0);
     opacity: 1;
   }
   100% {
