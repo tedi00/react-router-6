@@ -73,8 +73,9 @@ export default function Home() {
             </div>
             <div className="row">
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-                    <ImageExpandCard style={{position: 'relative'}} src={heartOfAndes}>
+                    <ImageExpandCard imageDescription={'The Heart of the Andes is a large oil-on-canvas landscape painting by the American artist Frederic Edwin Church (1826–1900).'} style={{position: 'relative'}} src={heartOfAndes}>
                         <ImageDot style={{top: '10rem', left: '5rem'}} src={heartOfAndes} />
+                        <ImageDot style={{top: '12rem', left: '10rem'}} src={heartOfAndes} />
                     </ImageExpandCard>
                 </div>
             </div>
