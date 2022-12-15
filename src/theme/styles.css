@@ -621,6 +621,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: background-color 330ms ease;
 }
 .image-dot::after {
   content: "";
@@ -637,6 +638,9 @@ body {
 .image-dot.active::after {
   display: block;
 }
+.image-dot.active::before {
+  background-color: #379dff;
+}
 .image-dot .image-dot-image {
   z-index: 10;
   position: absolute;
@@ -644,10 +648,9 @@ body {
   transform: translateY(5rem);
   border: 2px solid transparent;
   transition: max-height 0s;
-  width: 15rem;
+  width: 20rem;
   max-height: 0;
   object-fit: cover;
-  object-position: top center;
 }
 .image-dot .image-dot-image.visible {
   max-height: 15rem;
