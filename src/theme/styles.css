@@ -20,12 +20,20 @@
 
 .sidebar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 1rem;
   padding: 1rem 2rem;
   flex-wrap: wrap;
   background-color: var(--background-color);
 }
+.sidebar .nav-anchor a {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar .nav-anchor a .nav-icon {
+  margin-left: 1rem;
+}
+
 .filter-class {
   border: 1px solid #367beb;
   border-radius: 0.25rem 0.25rem 0 0;
@@ -569,6 +577,87 @@ body {
   background-color: #379dff;
   color: #FFFFFF;
   border: none;
+}
+
+.image-expandable {
+  width: 100%;
+  max-height: 20rem;
+  transition: transform 330ms ease;
+  object-fit: cover;
+  transform-origin: bottom;
+}
+.image-expandable:hover {
+  transform: scale(1.1);
+}
+
+.image-description {
+  border-left: 1px solid #c1c1c1;
+  border-right: 1px solid #c1c1c1;
+  border-bottom: 1px solid #c1c1c1;
+  padding: 1rem;
+  color: #424242;
+}
+
+.image-dot {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  backdrop-filter: blur(5px);
+  position: absolute;
+  z-index: 10;
+}
+.image-dot::before {
+  content: "";
+  display: block;
+  z-index: 10;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.image-dot::after {
+  content: "";
+  display: none;
+  z-index: 10;
+  width: 2px;
+  height: 5rem;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+}
+.image-dot.active::after {
+  display: block;
+}
+.image-dot .image-dot-image {
+  z-index: 10;
+  position: absolute;
+  top: 100%;
+  transform: translateY(5rem);
+  border: 2px solid transparent;
+  transition: max-height 0s;
+  width: 15rem;
+  max-height: 0;
+  object-fit: cover;
+  object-position: top center;
+}
+.image-dot .image-dot-image.visible {
+  max-height: 15rem;
+  border-color: white;
+  transition: max-height 1s;
+  box-shadow: 0 0 10px black;
+}
+
+.expandable {
+  transition: max-height 1s;
+  max-height: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

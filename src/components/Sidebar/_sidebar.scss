@@ -51,11 +51,14 @@
 
 .sidebar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 1rem;
   padding: 1rem 2rem;
   flex-wrap: wrap;
   background-color: var(--background-color);
+  & > * {
+
+  }
   //--border-right: 1px;
   //--width: 300px;
   //--closed-width: 60px;
@@ -220,4 +223,11 @@
   //    align-items: center;
   //  }
   //}
+  .nav-anchor a {
+    display: flex;
+    justify-content: space-between;
+    .nav-icon {
+      margin-left: 1rem;
+    }
+  }
 }

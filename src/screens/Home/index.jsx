@@ -8,6 +8,9 @@ import {Carousel} from "../../components/Carousel";
 import {BoxSelector} from "../../components/BoxSelector";
 import {BoxElement} from "../../components/BoxSelector/BoxElement";
 import {Dropdown} from "../../components/Dropdown";
+import {ImageExpandCard} from "../../components/ImageExpandCard";
+import heartOfAndes from "../../media/Church_Heart_of_the_Andes.jpg";
+import {ImageDot} from "../../components/ImageDot";
 
 export default function Home() {
 
@@ -70,21 +73,9 @@ export default function Home() {
             </div>
             <div className="row">
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-                    <Dropdown name='fruit' options={[
-                        {name: 'Cherry', value: 'cherry'},
-                        {name: 'Lemon', value: 'lemon', defaultValue: true},
-                        {name: 'Banana', value: 'banana'},
-                        {name: 'Strawberry', value: 'strawberry'},
-                        {name: 'Apple', value: 'apple'},
-                        {name: 'Apricot', value: 'apricot'},
-                        {name: 'Mango', value: 'mango'},
-                        {name: 'Orange', value: 'orange'},
-                        {name: 'Grape', value: 'grape'},
-                        {name: 'Blueberry', value: 'blueberry'},
-                        {name: 'Tomato', value: 'tomato'},
-                        {name: 'Kiwi', value: 'kiwi'},
-                        {name: 'Tangerine', value: 'tangerine'}
-                    ]} onChange={(e) => {console.log(e.target.value)}} style={{width: '20em'}} />
+                    <ImageExpandCard style={{position: 'relative'}} src={heartOfAndes}>
+                        <ImageDot style={{top: '10rem', left: '5rem'}} src={heartOfAndes} />
+                    </ImageExpandCard>
                 </div>
             </div>
         </div>
