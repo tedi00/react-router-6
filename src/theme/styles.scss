@@ -11,6 +11,7 @@
 @import "../../src/components/Carousel/carousel";
 @import "../../src/components/BoxSelector/box-selector";
 @import "../../src/components/Dropdown/dropdown";
+@import "../../src/components/VoyageSlider/voyage-slider";
 
 // Setting theme
 :root {
@@ -109,16 +110,7 @@ body {
   .image-description {
     padding: 1rem;
     height: 100%;
-    &.left {
-      border-left: 1px solid colors.$lightgray;
-      border-top: 1px solid colors.$lightgray;
-      border-bottom: 1px solid colors.$lightgray;
-    }
-    &.right {
-      border-right: 1px solid colors.$lightgray;
-      border-top: 1px solid colors.$lightgray;
-      border-bottom: 1px solid colors.$lightgray;
-    }
+    border: 1px solid colors.$lightgray;
   }
   .image {
     width: 100%;

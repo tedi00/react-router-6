@@ -12,6 +12,7 @@ import {ImageExpandCard} from "../../components/ImageExpandCard";
 import heartOfAndes from "../../media/Church_Heart_of_the_Andes.jpg";
 import {ImageDot} from "../../components/ImageDot";
 import {ImageDescCard} from "../../components/ImageDescCard";
+import {VoyageSlider} from "../../components/VoyageSlider";
 
 export default function Home() {
 
@@ -76,13 +77,13 @@ export default function Home() {
                 <div className="col-12 col-md-6">
                     <ImageExpandCard imageDescription={'The Heart of the Andes is a large oil-on-canvas landscape ' +
                         'painting by the American artist Frederic Edwin Church (1826–1900).'}
-                                     style={{position: 'relative'}} src={heartOfAndes}>
+                                     style={{marginTop: '2rem'}} src={heartOfAndes}>
                     </ImageExpandCard>
                 </div>
                 <div className="col-12 col-md-6">
                     <ImageExpandCard imageDescription={'The Heart of the Andes is a large oil-on-canvas landscape ' +
                         'painting by the American artist Frederic Edwin Church (1826–1900).'}
-                                     style={{position: 'relative'}} src={heartOfAndes}>
+                                     style={{marginTop: '2rem'}} src={heartOfAndes}>
                     </ImageExpandCard>
                 </div>
                 <div className="col-12">
@@ -102,6 +103,9 @@ export default function Home() {
                         <ImageDot style={{top: '50%', left: '50%'}} src={heartOfAndes} />
                         <ImageDot style={{top: '25%', left: '75%'}} src={heartOfAndes} />
                     </ImageDescCard>
+                </div>
+                <div className="col-12">
+                    <VoyageSlider/>
                 </div>
             </div>
         </div>
