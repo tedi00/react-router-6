@@ -521,6 +521,10 @@ body {
   --card-transition-easing: ease;
 }
 
+.voyage-slider {
+  width: 100vw;
+  height: 100vh;
+}
 .voyage-slider body {
   width: 100%;
   height: 100vh;
@@ -540,7 +544,9 @@ body {
   border: none;
 }
 .voyage-slider .app {
-  position: relative;
+  z-index: 1;
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -549,8 +555,8 @@ body {
 }
 .voyage-slider .app__bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: calc(100% + 4rem);
+  height: calc(100% + 4rem);
   z-index: -5;
   filter: blur(8px);
   pointer-events: none;
@@ -607,13 +613,18 @@ body {
   height: var(--btn-size);
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   z-index: 100;
+  border-radius: 0;
+  transform: translateY(-50%) rotate(45deg);
 }
 .voyage-slider .cardList__btn.btn--left {
   left: -5%;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
 }
 .voyage-slider .cardList__btn.btn--right {
+  border-right: 2px solid white;
+  border-top: 2px solid white;
   right: -5%;
 }
 .voyage-slider .cardList__btn .icon {
