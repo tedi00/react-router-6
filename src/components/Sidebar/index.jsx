@@ -5,6 +5,7 @@ import {useClasses} from "../../hooks/useClasses";
 import React from "react";
 import {useSettings} from "../../hooks/useSettings";
 import {RoutingHelpers} from "../../routing/routing-helpers";
+import logo from "../../media/METAL ONHS 1.1.png"
 
 export const Sidebar = () => {
 
@@ -79,16 +80,18 @@ export const Sidebar = () => {
             {/*    <span aria-label={'toggle'}/>*/}
             {/*</button>*/}
             <div>
-                {currentRoutes}
+                {/*{currentRoutes}*/}
+                <img height={56} src={logo} alt=""/>
             </div>
             <div>
-                <NavLink
-                    to={settingsRoute.path}
-                    text={settingsRoute.name}
-                    icon={settingsRoute.icon}
-                    onClick={closeSidebar}
-                    key={settingsRoute.name}
-                />
+                {/*<NavLink*/}
+                {/*    to={settingsRoute.path}*/}
+                {/*    text={settingsRoute.name}*/}
+                {/*    icon={settingsRoute.icon}*/}
+                {/*    onClick={closeSidebar}*/}
+                {/*    key={settingsRoute.name}*/}
+                {/*/>*/}
+                <h5 style={{fontFamily: "Montserrat"}} className='text-white m-0'>OUNOHANSI - ONLY THE BEST</h5>
             </div>
         </nav>
     );

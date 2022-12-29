@@ -1,12 +1,11 @@
 import { gsap } from "gsap";
-import { ImagesLoaded } from "imagesloaded";
 import {useEffect, useState} from "react";
 import button from "bootstrap/js/src/button";
-
-const { imagesLoaded } = window;
+import AluminiumNanotech from "../../media/technologies/Aluminium-Nanotechnology.jpg"
+import Plating from "../../media/technologies/Plating.jpg"
+import TemperedGlass from "../../media/technologies/Tempered-Glass.jpg"
 
 export const VoyageSlider = (props) => {
-    const src = props.sources;
     const [buttons, setButtons] = useState(undefined);
     const [cardsContainerEl, setCardsContainerEl] = useState(undefined);
     const [appBgContainerEl, setAppBgContainerEl] = useState(undefined);
@@ -281,19 +280,19 @@ export const VoyageSlider = (props) => {
             <div className="cards__wrapper">
                 <div className="card current--card">
                     <div className="card__image">
-                        <img src="https://source.unsplash.com/Z8dtTatMVMw" alt="Display image"/>
+                        <img src={AluminiumNanotech} alt="Display image"/>
                     </div>
                 </div>
 
                 <div className="card next--card">
                     <div className="card__image">
-                        <img src="https://source.unsplash.com/9dmycbFE7mQ" alt="Display image"/>
+                        <img src={Plating} alt="Display image"/>
                     </div>
                 </div>
 
                 <div className="card previous--card">
                     <div className="card__image">
-                        <img src="https://source.unsplash.com/m7K4KzL5aQ8" alt="Display image"/>
+                        <img src={TemperedGlass} alt="Display image"/>
                     </div>
                 </div>
             </div>
@@ -311,21 +310,21 @@ export const VoyageSlider = (props) => {
         <div className="infoList">
             <div className="info__wrapper">
                 <div className="info current--info">
-                    <h1 className="text name">Highlands</h1>
-                    <h4 className="text location">Scotland</h4>
-                    <p className="text description">The mountains are calling</p>
+                    <h1 className="text name">Aluminium</h1>
+                    {/*<h4 className="text location">Aluminium & Nanotech</h4>*/}
+                    <p className="text description">Metallic parts made with cutting edge technology</p>
                 </div>
 
                 <div className="info next--info">
-                    <h1 className="text name">Machu Pichu</h1>
-                    <h4 className="text location">Peru</h4>
-                    <p className="text description">Adventure is never far away</p>
+                    <h1 className="text name">Plating</h1>
+                    {/*<h4 className="text location">Metal plating technology</h4>*/}
+                    <p className="text description">The best corrosion resistance in the market</p>
                 </div>
 
                 <div className="info previous--info">
-                    <h1 className="text name">Chamonix</h1>
-                    <h4 className="text location">France</h4>
-                    <p className="text description">Let your dreams come true</p>
+                    <h1 className="text name">Tempered Glass</h1>
+                    {/*<h4 className="text location">France</h4>*/}
+                    <p className="text description">Processed for safety and strength</p>
                 </div>
             </div>
         </div>
@@ -333,13 +332,13 @@ export const VoyageSlider = (props) => {
     const appBg = (
         <div className="app__bg">
             <div className="app__bg__image current--image">
-                <img src="https://source.unsplash.com/Z8dtTatMVMw" alt=""/>
+                <img src={AluminiumNanotech} alt=""/>
             </div>
             <div className="app__bg__image next--image">
-                <img src="https://source.unsplash.com/9dmycbFE7mQ" alt=""/>
+                <img src={Plating} alt=""/>
             </div>
             <div className="app__bg__image previous--image">
-                <img src="https://source.unsplash.com/m7K4KzL5aQ8" alt=""/>
+                <img src={TemperedGlass} alt=""/>
             </div>
         </div>
     )

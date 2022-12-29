@@ -22,10 +22,21 @@
 .sidebar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
-  padding: 1rem 2rem;
+  padding: 0.2rem 2rem;
   flex-wrap: wrap;
-  background-color: var(--background-color);
+  background-color: rgba(22, 22, 22, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.sidebar img {
+  width: 100px;
+  height: 56px;
+  object-fit: cover;
 }
 .sidebar .nav-anchor a {
   display: flex;
@@ -431,7 +442,8 @@ body {
     background-color: #367beb;
   }
   .react-dropdown::after {
-    content: ""; /* U+25BC; make sure to set a charset meta tag */
+    content: "";
+    /* U+25BC; make sure to set a charset meta tag */
     position: absolute;
     z-index: 10;
     box-sizing: border-box;
@@ -547,6 +559,7 @@ body {
   z-index: 1;
   position: absolute;
   left: 0;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   display: flex;
@@ -718,6 +731,8 @@ body {
   margin-left: calc(var(--card-width) / 1.5);
   transform: translateZ(2rem);
   transition: transform var(--card-transition-duration) var(--card-transition-easing);
+  position: absolute;
+  top: 33%;
 }
 .voyage-slider .info .text {
   position: relative;
@@ -762,6 +777,10 @@ body {
 .voyage-slider .info .description {
   --text-size-offset: 0.065;
   font-weight: 500;
+  background: rgba(22, 22, 22, 0.5);
+  padding: 0.25rem;
+  text-align: center;
+  width: 100%;
 }
 .voyage-slider .info.current--info {
   opacity: 1;
@@ -802,7 +821,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgb(255, 0, 0);
+  background: red;
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -874,7 +893,7 @@ body {
 }
 
 .content {
-  padding: 1rem 1rem 1rem calc(60px + 1rem);
+  padding: 0 1rem 1rem 1rem;
   min-height: 100%;
 }
 .content h1 {
@@ -899,7 +918,7 @@ body {
 
 .image-expandable {
   width: 100%;
-  max-height: 20rem;
+  height: 15rem;
   transition: transform 330ms ease;
   object-fit: cover;
   transform-origin: bottom;
@@ -924,6 +943,11 @@ body {
   padding: 1rem;
   height: 100%;
   border: 1px solid #c1c1c1;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
 }
 .image-container-card .image {
   width: 100%;
@@ -973,6 +997,9 @@ body {
   left: 50%;
   top: 100%;
   transform: translate(-50%, 0);
+}
+.image-dot.active {
+  z-index: 20;
 }
 .image-dot.active::after {
   display: block;

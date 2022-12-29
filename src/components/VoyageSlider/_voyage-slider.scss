@@ -240,6 +240,8 @@
     transform: translateZ(2rem);
     transition: transform var(--card-transition-duration)
     var(--card-transition-easing);
+    position: absolute;
+    top: 33%;
     .text {
       position: relative;
       font-family: "Montserrat";
@@ -288,6 +290,10 @@
     .description {
       --text-size-offset: 0.065;
       font-weight: 500;
+      background: rgba(22, 22, 22, 0.5);
+      padding: .25rem;
+      text-align: center;
+      width: 100%;
     }
 
     &.current--info {
