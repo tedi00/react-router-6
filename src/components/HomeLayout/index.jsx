@@ -3,6 +3,7 @@ import {useAuth} from "../../hooks/useAuth";
 import {Sidebar} from "../Sidebar";
 import React from "react";
 import {useSettings} from "../../hooks/useSettings";
+import {Footer} from "../Footer";
 
 export const HomeLayout = () => {
 
@@ -23,6 +24,7 @@ export const HomeLayout = () => {
             <div className="content">
                 <Outlet/>
             </div>
+            <Footer/>
         </div>
     );
 };
