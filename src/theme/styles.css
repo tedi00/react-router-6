@@ -442,8 +442,7 @@ body {
     background-color: #367beb;
   }
   .react-dropdown::after {
-    content: "";
-    /* U+25BC; make sure to set a charset meta tag */
+    content: ""; /* U+25BC; make sure to set a charset meta tag */
     position: absolute;
     z-index: 10;
     box-sizing: border-box;
@@ -821,7 +820,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: red;
+  background: rgb(255, 0, 0);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -952,6 +951,7 @@ body {
 .image-container-card .image {
   width: 100%;
   height: 100%;
+  max-height: 80vh;
   object-fit: cover;
 }
 .image-container-card.right .image-dot-image {
@@ -1030,9 +1030,8 @@ body {
   max-height: 0;
 }
 
-.footer-border{
-  border: 10px solid rgba(22, 22, 22, 0.5);
+.footer-border {
+  border: 3px solid rgba(22, 22, 22, 0.5);
 }
-
 
 /*# sourceMappingURL=styles.css.map */

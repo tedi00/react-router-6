@@ -3,7 +3,7 @@ export const ImageDescCard = ({src, ...props}) => {
     const isRight = props.imageSide?.toLowerCase() === "right";
     return (<>
         <div style={style} className={"image-container-card" + (isRight ? " right" : "")}>
-            <div className="row g-0">
+            <div className="row g-0 w-100">
                 {(props.imageDescription && isRight) && (
                     <div className="col-12 col-md-6">
                         <div
