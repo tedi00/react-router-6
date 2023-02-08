@@ -1,6 +1,5 @@
 import {Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../../hooks/useAuth";
-import {Sidebar} from "../Sidebar";
 
 export const HomeLayout = () => {
 
@@ -12,7 +11,7 @@ export const HomeLayout = () => {
 
     return (
         <div className={'wrapper'}>
-            <Sidebar/>
+            {/*<Sidebar/>*/}
             <div className="content">
                 <Outlet/>
             </div>
