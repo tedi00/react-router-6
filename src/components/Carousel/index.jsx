@@ -39,7 +39,7 @@ export const Carousel = (props) => {
         return <div key={i} className="item">{item}</div>
     })
     const dots = items.map((item, i) => {
-        return <div key={i} onClick={() => {setCarouselPosition(i)}} className="dots"></div>
+        return <div key={i} onClick={() => {setCarouselPosition(i)}} className="carousel-dots"></div>
     });
 
     return (

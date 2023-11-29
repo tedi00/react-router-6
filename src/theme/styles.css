@@ -468,7 +468,7 @@ body {
   overflow: hidden;
 }
 
-.dots {
+.carousel-dots {
   height: 0.5rem;
   width: 3rem;
   background: black;
@@ -574,7 +574,8 @@ body {
     background-color: #367beb;
   }
   .react-dropdown::after {
-    content: ""; /* U+25BC; make sure to set a charset meta tag */
+    content: "";
+    /* U+25BC; make sure to set a charset meta tag */
     position: absolute;
     z-index: 10;
     box-sizing: border-box;
