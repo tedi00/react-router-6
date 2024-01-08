@@ -32,29 +32,24 @@ export default function Home() {
                             ensure a seamless user experience.
                         </p>
                         <button onClick={()=>{setIsAboutExtended(!isAboutExtended)}} className='content-more'>More...</button>
-                        <p className='about-me-more'>
-
-                        </p>
-                        <PLong isVisible={true} text={'In this ever-evolving industry, I understand the importance of ' +
+                        <PLong isVisible={isAboutExtended} text={'In this ever-evolving industry, I understand the importance of ' +
                             'continuous learning. Keeping myself updated with the latest trends, tools, and best ' +
                             'practices in front-end development is not just a requirement for me, but a habit I truly ' +
                             'enjoy.'}>
                         </PLong>
-                        <p className='about-me-more'>
-                            Working collaboratively, understanding different perspectives, and contributing my skill
-                            sets to a team-oriented projects are some activities that excite me. I firmly believe in
-                            the Agile methodology and value frequent communication and feedback, aiming for incremental
-                            improvements that lead to top-notch end products.
-                        </p>
-                        <p className='about-me-more'>
-                            While I'm deeply focused and committed to my craft, I also understand and practice the
-                            balance of life beyond the screen, valuing time spent in nature, reading, and continuous
-                            self-improvement.
-                        </p>
-                        <p className='about-me-more'>
-                            With each line of code, I strive to make the digital world a better, more accessible
-                            place — one well-structured, efficient, and user-friendly website at a time.
-                        </p>
+                        <PLong isVisible={isAboutExtended} text={'Working collaboratively, understanding different ' +
+                            'perspectives, and contributing my skill sets to a team-oriented projects are some ' +
+                            'activities that excite me. I firmly believe in the Agile methodology and value frequent' +
+                            ' communication and feedback, aiming for incremental improvements that lead to top-notch ' +
+                            'end products.'}>
+                        </PLong>
+                        <PLong isVisible={isAboutExtended} text={'While I\'m deeply focused and committed to my craft, ' +
+                            'I also understand and practice the balance of life beyond the screen, valuing time spent ' +
+                            'in nature, reading, and continuous self-improvement.'}>
+                        </PLong>
+                        <PLong isVisible={isAboutExtended} text={'With each line of code, I strive to make the digital ' +
+                            'world a better, more accessible place — one well-structured, efficient, and user-friendly ' +
+                            'website at a time.'}></PLong>
                         <button onClick={()=>{setIsAboutExtended(!isAboutExtended)}} className='about-me-more content-less'>Less...</button>
                     </div>
                 </div>
