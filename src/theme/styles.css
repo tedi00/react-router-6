@@ -1,14 +1,110 @@
-* {
-  box-sizing: border-box;
+main {
+  line-height: 1.5;
+}
+main .container {
+  padding: min(1rem, 10vw);
+}
+main .header-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+main .header-row h1 {
+  min-width: 150px;
+}
+main .header-row .cv-contact {
+  text-align: right;
+}
+main .header-row .cv-contact a {
+  color: #0066CCFF;
+}
+main .header-row .cv-picture {
+  display: grid;
+  place-items: center;
+}
+main .header-row .cv-picture img {
+  max-width: 6rem;
+  max-height: 6rem;
+  border-radius: 50%;
+}
+main .header-row .header-row-text {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+main .about-content .content-more, main .about-content .content-less {
+  color: #0066CCFF;
+  cursor: pointer;
+}
+main .about-content .about-me-more {
+  display: none;
+}
+main .about-content.extended .about-me-more {
+  display: block;
+}
+main .about-content.extended .content-more {
+  display: none;
 }
 
+.cv-css {
+  font-weight: bolder;
+  background-color: #CA4246;
+  background-image: linear-gradient(45deg, #CA4246 16.666%, #E16541 16.666%, #E16541 33.333%, #F18F43 33.333%, #F18F43 50%, #8B9862 50%, #8B9862 66.666%, #476098 66.666%, #476098 83.333%, #A7489B 83.333%);
+  background-size: 500%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
+  animation: background-move 4s ease-in-out infinite;
+}
+.cv-css:hover {
+  transform: rotate(1turn);
+}
+
+@keyframes background-move {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 40em) {
+  main .container {
+    padding: 2rem;
+  }
+}
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+  main .container {
+    padding: 3rem;
+  }
+}
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+  main .container {
+    padding: 4rem;
+  }
+}
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+  main .container {
+    padding: 5rem;
+  }
+}
 html, body {
   margin: 0;
   min-height: 100vh;
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #D6BCFA, #FBD38D);
+  background-color: #F3F3F3;
 }
 
 /*# sourceMappingURL=styles.css.map */

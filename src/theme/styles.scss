@@ -1,5 +1,5 @@
-@use 'colors';
-@import "navbar";
+@use 'colors' as c;
+@import "cv";
 
 html, body {
   margin: 0;
@@ -7,5 +7,5 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(to bottom right, colors.$purple-200, colors.$orange-200);
+  background-color: c.$white-smoke;
 }
